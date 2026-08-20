@@ -1,0 +1,1776 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+     Content Security Policy. This is what turns "your files never leave this
+     page" from a promise into an enforced property of the document:
+       connect-src 'none'  ‚Äî blocks fetch, XHR, WebSocket and sendBeacon, so no
+                             script on this page can transmit anything, anywhere
+       script-src 'unsafe-inline' with no host sources ‚Äî inline script (this
+                             file's own) runs; any EXTERNAL script, including one
+                             injected by a hosting platform, is blocked outright
+       form-action 'none'  ‚Äî nothing can be submitted
+     Keep this tag FIRST in <head> so it governs everything parsed after it.
+     If you host somewhere that injects analytics, the injected tag will be
+     blocked rather than silently breaking the privacy claim made below.
+
+     Verified in-browser: fetch, XMLHttpRequest, sendBeacon and WebSocket are
+     all refused with "violates ... connect-src 'none'", and an external
+     <script src> is refused by script-src. Note that sendBeacon returns true
+     even when blocked ‚Äî it queues, then the send is refused, so its return
+     value is not evidence either way.
+
+     'frame-ancestors' is deliberately absent: browsers ignore it in a <meta>
+     tag. To stop this page being framed by someone else you need a real HTTP
+     response header at the host (frame-ancestors, or X-Frame-Options).
+     Serving this whole policy as a header is stronger than the meta tag and
+     is worth doing if your host allows it.
+     ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Drag You Can't See ‚Äî a free operating-efficiency audit for small businesses</title>
+<meta name="description" content="A free tool that reads your meeting notes and inbox exports, flags where a small business loses capacity, and prices the fix. Runs entirely in your browser ‚Äî nothing is uploaded.">
+<meta name="author" content="Siera Gunnett ‚Äî Plannett Gunnett">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Drag You Can't See ‚Äî a free efficiency audit for small businesses">
+<meta property="og:description" content="Drop in meeting notes or an inbox export. It flags where capacity is leaking, credits what already works, and prices the fix. Everything runs in your browser ‚Äî no upload, no account, no cost.">
+<style>
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+   PLANNETT GUNNETT‚Ñ¢ ‚Äî editorial cream + ink, single accent.
+   Committed single look (cream paper); color-scheme pinned so no forced invert.
+   Palette validated against the data-viz six checks on surface #FAF8F3:
+     slot 1 violet #4a3aa7 ¬∑ slot 2 rust #C2452D ¬∑ slot 3 blue #2a78d6
+     all-pairs CVD ŒîE 13.0 (deutan) ¬∑ normal-vision ŒîE 16.3 ¬∑ all ‚â•3:1 contrast
+   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+:root{
+  color-scheme: light;
+  --cream:#FAF8F3;
+  --paper:#FFFEFB;
+  --ink:#14130F;          /* 17.5:1 */
+  --ink-2:#4A4740;        /*  8.7:1 */
+  --ink-3:#6E6A60;        /*  5.1:1 */
+  --ink-4:#868175;        /*  3.7:1 ‚Äî large text / non-text only */
+  --rule:#E1DED4;
+  --rule-2:#CFCabc;
+  --accent:#C2452D;       /*  4.7:1 */
+  --accent-deep:#A8391F;  /*  6.1:1 */
+  --accent-wash:#F6E9E4;
+
+  --s1:#4a3aa7;  /* marketing-first  */
+  --s2:#C2452D;  /* efficiency-first */
+  --s3:#2a78d6;  /* sequenced        */
+
+  --good:#0ca30c; --good-ink:#006300;
+  --warn:#fab219; --serious:#ec835a; --critical:#d03b3b;
+
+  --serif: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans: system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --maxw: 74rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:var(--serif); font-size:clamp(1rem,0.97rem + 0.15vw,1.0625rem);
+  line-height:1.62; text-rendering:optimizeLegibility;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(1.25rem,4vw,3.5rem)}
+h1,h2,h3,h4{font-weight:600; line-height:1.15; margin:0; letter-spacing:-0.012em}
+p{margin:0 0 1em}
+a{color:var(--accent-deep); text-underline-offset:.18em}
+hr{border:0; border-top:1px solid var(--rule); margin:0}
+.sans{font-family:var(--sans)}
+.eyebrow{
+  font-family:var(--sans); font-size:.6875rem; font-weight:650;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3);
+}
+.lede{font-size:1.22em; line-height:1.5; color:var(--ink-2)}
+.measure{max-width:38em}
+:where(a,button,summary,input,select,[tabindex]):focus-visible{
+  outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;
+}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ‚îÄ‚îÄ masthead ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.masthead{border-bottom:1px solid var(--ink); padding:1.1rem 0 .9rem; margin-bottom:clamp(2.5rem,6vw,4.5rem)}
+.masthead .wrap{display:flex; flex-wrap:wrap; gap:1rem 1.5rem; align-items:baseline; justify-content:space-between}
+.wordmark{font-family:var(--sans); font-weight:700; font-size:.9375rem; letter-spacing:.1em; text-transform:uppercase}
+.wordmark sup{font-size:.55em; letter-spacing:0; vertical-align:super}
+.masthead .tag{font-size:.9375rem; color:var(--ink-2); font-style:italic}
+
+.hero{padding-bottom:clamp(2.5rem,6vw,4rem)}
+.hero h1{font-size:clamp(2.4rem,1.4rem + 4.4vw,4.4rem); letter-spacing:-0.028em; max-width:26em}
+.hero h1 em{font-style:italic; color:var(--accent-deep)}
+.hero .lede{margin-top:1.4rem; max-width:34em}
+.byline{margin-top:2rem; font-family:var(--sans); font-size:.8125rem; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:.4rem 1.1rem}
+
+/* ‚îÄ‚îÄ sections ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+section{padding:clamp(2.75rem,6vw,4.5rem) 0; border-top:1px solid var(--rule)}
+.sec-head{display:grid; grid-template-columns:auto 1fr; gap:0 1.25rem; align-items:baseline; margin-bottom:2rem}
+.sec-num{font-family:var(--sans); font-size:.75rem; font-weight:650; color:var(--accent); letter-spacing:.08em; padding-top:.5rem}
+.sec-head h2{font-size:clamp(1.65rem,1.2rem + 1.6vw,2.4rem); letter-spacing:-0.022em}
+.sec-head p{margin:.7rem 0 0; color:var(--ink-2); max-width:42em}
+
+/* ‚îÄ‚îÄ thesis ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.props{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+@media(min-width:52rem){.props{grid-template-columns:1fr 1fr}}
+.props li{background:var(--paper); padding:1.6rem 1.5rem}
+.props h3{font-size:1.0625rem; margin-bottom:.5rem; display:flex; gap:.6rem; align-items:baseline}
+.props h3 span{font-family:var(--sans); font-size:.6875rem; font-weight:650; color:var(--accent); letter-spacing:.06em; flex:none; padding-top:.15em}
+.props p{margin:0; font-size:.9375rem; color:var(--ink-2); line-height:1.55}
+
+/* ‚îÄ‚îÄ rules (interactive) ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.rules{border-top:1px solid var(--rule-2)}
+.rule-item{border-bottom:1px solid var(--rule-2)}
+.rule-item summary{
+  cursor:pointer; list-style:none; padding:1.15rem .5rem 1.15rem 0;
+  display:grid; grid-template-columns:2.5rem 1fr auto; gap:1rem; align-items:baseline;
+}
+.rule-item summary::-webkit-details-marker{display:none}
+.rule-item summary:hover .rule-t{color:var(--accent-deep)}
+.rule-n{font-family:var(--sans); font-size:.75rem; font-weight:650; color:var(--ink-4); padding-top:.2em}
+.rule-t{font-size:clamp(1.05rem,1rem + .35vw,1.3rem); font-weight:600; letter-spacing:-0.015em}
+.rule-mark{font-family:var(--sans); font-size:1.25rem; color:var(--accent); line-height:1; transition:transform .18s ease}
+details[open] .rule-mark{transform:rotate(45deg)}
+.rule-body{padding:0 0 1.6rem 3.5rem; max-width:44em}
+@media(max-width:40rem){.rule-body{padding-left:0}}
+.vs{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); margin:.25rem 0 1.1rem}
+@media(min-width:44rem){.vs{grid-template-columns:1fr 1fr}}
+.vs>div{background:var(--paper); padding:1rem 1.1rem}
+.vs .k{font-family:var(--sans); font-size:.6875rem; font-weight:650; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:.35rem}
+.vs .intuit{background:#F7F5EF}
+.vs .actual .k{color:var(--accent-deep)}
+.vs p{margin:0; font-size:.9375rem; line-height:1.5}
+.mech{font-size:.9375rem; color:var(--ink-2); border-left:2px solid var(--accent); padding-left:1rem}
+.mech b{color:var(--ink); font-weight:600}
+
+/* ‚îÄ‚îÄ privacy note ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.privacy{
+  font-family:var(--sans); font-size:.8125rem; line-height:1.5; color:var(--ink-2);
+  background:var(--accent-wash); border:1px solid #E9D3CA; padding:.85rem 1rem;
+  display:flex; gap:.65rem; align-items:flex-start; margin-bottom:1.5rem;
+}
+.privacy b{color:var(--ink)}
+.privacy .ic{flex:none; color:var(--accent-deep); font-size:1rem; line-height:1.25}
+
+/* ‚îÄ‚îÄ dropzone ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.drop{
+  border:1.5px dashed var(--rule-2); background:var(--paper); border-radius:3px;
+  padding:clamp(1.75rem,5vw,3rem) 1.5rem; text-align:center; transition:border-color .15s, background .15s;
+}
+.drop.over{border-color:var(--accent); background:var(--accent-wash)}
+.drop h3{font-family:var(--sans); font-size:1.0625rem; margin-bottom:.4rem}
+.drop p{font-family:var(--sans); font-size:.8125rem; color:var(--ink-3); margin:0 auto; max-width:34em}
+.drop-actions{display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin-top:1.25rem}
+.btn{
+  font-family:var(--sans); font-size:.8125rem; font-weight:600; letter-spacing:.01em;
+  padding:.6rem 1.1rem; border-radius:2px; border:1px solid var(--ink); background:var(--ink);
+  color:var(--cream); cursor:pointer; transition:background .15s,color .15s,border-color .15s;
+}
+.btn:hover{background:var(--accent-deep); border-color:var(--accent-deep)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--rule-2)}
+.btn.ghost:hover{background:transparent; color:var(--accent-deep); border-color:var(--accent)}
+.btn.sm{padding:.4rem .75rem; font-size:.75rem}
+.filelist{list-style:none; margin:1.25rem 0 0; padding:0; display:flex; flex-wrap:wrap; gap:.4rem; justify-content:center}
+.filelist li{
+  font-family:var(--mono); font-size:.75rem; background:var(--cream);
+  border:1px solid var(--rule); padding:.25rem .55rem; color:var(--ink-2);
+}
+.filelist .bad{border-color:#E6C4C4; color:var(--critical)}
+
+/* ‚îÄ‚îÄ paste fallback (.docx/.pdf are the common case and can't be parsed here
+      without an external library, which would break the CSP guarantee) ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.paste{border:1px solid var(--rule); background:var(--paper); margin-top:.75rem}
+.paste>summary{cursor:pointer; list-style:none; padding:.8rem 1.1rem; font-family:var(--sans); font-size:.875rem; font-weight:600; display:flex; justify-content:space-between; gap:1rem; align-items:baseline}
+.paste>summary::-webkit-details-marker{display:none}
+.paste>summary span{color:var(--ink-3); font-weight:400; font-size:.8125rem}
+.paste-body{padding:.9rem 1.1rem 1.1rem; border-top:1px solid var(--rule)}
+.paste-body textarea{
+  width:100%; min-height:9rem; resize:vertical; padding:.7rem .8rem;
+  font-family:var(--mono); font-size:.8125rem; line-height:1.5;
+  border:1px solid var(--rule-2); background:var(--cream); color:var(--ink); border-radius:2px;
+}
+.paste-body textarea:hover{border-color:var(--ink-4)}
+.paste-body .row{display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin-top:.7rem}
+.paste-body .row .hint{margin:0}
+.status{
+  font-family:var(--sans); font-size:.8125rem; color:var(--ink-2);
+  margin:.9rem 0 0; min-height:1.2em; text-align:center;
+}
+.status.err{color:var(--critical)}
+.status b{color:var(--ink)}
+
+/* ‚îÄ‚îÄ findings ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.results{margin-top:2.5rem}
+.results[hidden]{display:none}
+.res-head{display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; align-items:baseline; justify-content:space-between; margin-bottom:1.25rem}
+.res-head h3{font-size:1.3rem}
+.chips{display:flex; flex-wrap:wrap; gap:.4rem}
+.chip{font-family:var(--sans); font-size:.75rem; border:1px solid var(--rule-2); padding:.25rem .6rem; color:var(--ink-2); background:var(--paper)}
+.chip b{color:var(--ink)}
+
+.finding{border:1px solid var(--rule); background:var(--paper); margin-bottom:.5rem}
+.finding>summary{
+  cursor:pointer; list-style:none; padding:.95rem 1.1rem;
+  display:grid; grid-template-columns:auto 1fr auto; gap:.9rem; align-items:center;
+}
+.finding>summary::-webkit-details-marker{display:none}
+.finding>summary:hover{background:#FCFAF5}
+.sev{
+  font-family:var(--sans); font-size:.6875rem; font-weight:650; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink-2); display:flex; align-items:center; gap:.4rem; white-space:nowrap;
+}
+.sev .dot{width:9px; height:9px; border-radius:50%; flex:none; box-shadow:0 0 0 1px rgba(20,19,15,.28)}
+.sev-critical .dot{background:var(--critical)} .sev-serious .dot{background:var(--serious)}
+.sev-warning .dot{background:var(--warn)}      .sev-strength .dot{background:var(--good)}
+.f-title{font-size:1rem; font-weight:600}
+.f-title .cnt{font-family:var(--sans); font-size:.8125rem; font-weight:500; color:var(--ink-3); margin-left:.5rem}
+.f-hrs{font-family:var(--sans); font-size:.8125rem; color:var(--ink-2); text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
+.f-hrs b{font-weight:650; color:var(--ink)}
+.f-body{padding:0 1.1rem 1.2rem; border-top:1px solid var(--rule)}
+.f-body>div{padding-top:1rem}
+.f-body h4{font-family:var(--sans); font-size:.6875rem; font-weight:650; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.4rem}
+.f-body p{font-size:.9375rem; margin:0 0 .9rem; max-width:44em}
+.ev{list-style:none; margin:0; padding:0; display:grid; gap:.3rem}
+.ev li{font-family:var(--mono); font-size:.75rem; line-height:1.45; background:var(--cream); border-left:2px solid var(--rule-2); padding:.4rem .6rem; color:var(--ink-2); overflow-wrap:anywhere}
+.ev .loc{display:block; color:var(--ink-4); font-size:.6875rem; margin-bottom:.15rem}
+.ev mark{background:#F7E2A8; color:var(--ink); padding:0 .1em}
+.ai-tag{font-family:var(--sans); font-size:.75rem; color:var(--ink-2); border:1px solid var(--rule-2); padding:.3rem .6rem; display:inline-block; background:var(--cream)}
+.ai-tag b{color:var(--accent-deep)}
+.empty{font-family:var(--sans); font-size:.875rem; color:var(--ink-3); font-style:normal; padding:1.5rem 0}
+
+/* ‚îÄ‚îÄ figures / stat tiles ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.hero-fig{border:1px solid var(--ink); background:var(--paper); padding:1.75rem; margin-bottom:1px}
+.hero-fig .lbl{font-family:var(--sans); font-size:.8125rem; color:var(--ink-2); margin-bottom:.3rem}
+.hero-fig .val{font-family:var(--sans); font-weight:700; font-size:clamp(2.75rem,2rem + 3.4vw,4.25rem); line-height:1; letter-spacing:-0.035em}
+.hero-fig .sub{font-family:var(--sans); font-size:.8125rem; color:var(--ink-3); margin-top:.6rem; max-width:40em}
+.tiles{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+@media(min-width:34rem){.tiles{grid-template-columns:1fr 1fr}}
+@media(min-width:60rem){.tiles{grid-template-columns:repeat(4,1fr)}}
+.tile{background:var(--paper); padding:1.15rem 1.2rem}
+.tile .lbl{font-family:var(--sans); font-size:.75rem; color:var(--ink-3); margin-bottom:.35rem; line-height:1.35}
+.tile .val{font-family:var(--sans); font-weight:650; font-size:1.75rem; line-height:1.05; letter-spacing:-0.02em}
+.tile .note{font-family:var(--sans); font-size:.75rem; color:var(--ink-3); margin-top:.3rem}
+
+/* ‚îÄ‚îÄ assumptions ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.assume{border:1px solid var(--rule); background:var(--paper); margin-top:1.5rem}
+.assume>summary{cursor:pointer; list-style:none; padding:.9rem 1.1rem; font-family:var(--sans); font-size:.875rem; font-weight:600; display:flex; justify-content:space-between; gap:1rem}
+.assume>summary::-webkit-details-marker{display:none}
+.assume>summary span{color:var(--ink-3); font-weight:400; font-size:.8125rem}
+.assume-body{padding:.25rem 1.1rem 1.35rem; border-top:1px solid var(--rule)}
+.grp{margin-top:1.25rem}
+.grp>h4{font-family:var(--sans); font-size:.6875rem; font-weight:650; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.75rem; padding-bottom:.4rem; border-bottom:1px solid var(--rule)}
+.fields{display:grid; gap:.85rem 1.5rem}
+@media(min-width:40rem){.fields{grid-template-columns:1fr 1fr}}
+@media(min-width:64rem){.fields{grid-template-columns:1fr 1fr 1fr}}
+.f{display:grid; grid-template-columns:1fr auto; gap:.4rem .75rem; align-items:center}
+.f label{font-family:var(--sans); font-size:.8125rem; color:var(--ink-2); line-height:1.3}
+.f input{
+  font-family:var(--sans); font-size:.875rem; font-variant-numeric:tabular-nums;
+  width:6.5rem; padding:.35rem .5rem; text-align:right;
+  border:1px solid var(--rule-2); background:var(--cream); color:var(--ink); border-radius:2px;
+}
+.f input:hover{border-color:var(--ink-4)}
+.f .unit{font-family:var(--sans); font-size:.75rem; color:var(--ink-4)}
+.caveat{font-family:var(--sans); font-size:.8125rem; line-height:1.55; color:var(--ink-2); margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--rule)}
+.caveat b{color:var(--ink)}
+
+/* ‚îÄ‚îÄ chart ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.chart-card{border:1px solid var(--rule); background:var(--paper); padding:1.35rem 1.35rem 1.1rem}
+.chart-top{display:flex; flex-wrap:wrap; gap:.9rem 1.5rem; align-items:baseline; justify-content:space-between; margin-bottom:1rem}
+.chart-top h3{font-family:var(--sans); font-size:1rem}
+.chart-top .sub{font-family:var(--sans); font-size:.8125rem; color:var(--ink-3); margin-top:.2rem}
+.legend{display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; margin-bottom:.5rem}
+.lk{display:flex; align-items:center; gap:.45rem; font-family:var(--sans); font-size:.8125rem; color:var(--ink-2)}
+.lk i{width:16px; height:2px; border-radius:1px; flex:none}
+.chart-scroll{overflow-x:auto; position:relative}
+.chart-scroll svg{display:block; min-width:34rem; width:100%; height:auto}
+.gridline{stroke:var(--rule); stroke-width:1}
+.axisline{stroke:var(--rule-2); stroke-width:1}
+.tick{font-family:var(--sans); font-size:11px; fill:var(--ink-4); font-variant-numeric:tabular-nums}
+.axtitle{font-family:var(--sans); font-size:11px; fill:var(--ink-3)}
+.endlbl{font-family:var(--sans); font-size:11.5px; font-weight:650; fill:var(--ink)}
+.leader{stroke:var(--rule-2); stroke-width:1}
+.zeroline{stroke:var(--ink-4); stroke-width:1}
+.xhair{stroke:var(--ink-4); stroke-width:1}
+.tip{
+  position:absolute; pointer-events:none; opacity:0; transition:opacity .1s;
+  background:var(--ink); color:var(--cream); font-family:var(--sans); font-size:.75rem;
+  padding:.5rem .65rem; border-radius:2px; min-width:11rem; z-index:5; line-height:1.45;
+}
+.tip.on{opacity:1}
+.tip .m{font-weight:650; margin-bottom:.3rem; display:block}
+.tip .r{display:flex; justify-content:space-between; gap:.9rem; font-variant-numeric:tabular-nums}
+.tip .r i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:.4rem;flex:none}
+.tip .r span:first-child{display:flex;align-items:center}
+.chart-foot{display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; align-items:center; justify-content:space-between; margin-top:.85rem; padding-top:.85rem; border-top:1px solid var(--rule)}
+.hint{font-family:var(--sans); font-size:.75rem; color:var(--ink-4)}
+table.tv{width:100%; border-collapse:collapse; font-family:var(--sans); font-size:.8125rem; font-variant-numeric:tabular-nums; margin-top:1rem}
+table.tv caption{text-align:left; font-size:.75rem; color:var(--ink-3); padding-bottom:.5rem}
+table.tv th,table.tv td{padding:.35rem .6rem; border-bottom:1px solid var(--rule); text-align:right}
+table.tv th:first-child,table.tv td:first-child{text-align:left}
+table.tv thead th{font-size:.6875rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); border-bottom:1px solid var(--rule-2)}
+table.tv .swatch{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:.4rem}
+.verdict{border:1px solid var(--ink); background:var(--paper); padding:1.35rem 1.5rem; margin-top:1.5rem}
+.verdict .k{font-family:var(--sans); font-size:.6875rem; font-weight:650; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-deep); margin-bottom:.5rem}
+.verdict p{font-size:1.0625rem; margin:0; max-width:46em}
+.verdict p+p{margin-top:.7rem; font-size:.9375rem; color:var(--ink-2)}
+.verdict b{font-weight:600}
+
+/* ‚îÄ‚îÄ honesty / closing ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.honest{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+@media(min-width:52rem){.honest{grid-template-columns:1fr 1fr 1fr}}
+.honest>div{background:var(--paper); padding:1.4rem 1.35rem}
+.honest h3{font-family:var(--sans); font-size:.9375rem; margin-bottom:.45rem}
+.honest p{font-size:.9375rem; color:var(--ink-2); margin:0; line-height:1.55}
+.cta{padding:clamp(2.75rem,6vw,4.5rem) 0; border-top:1px solid var(--ink)}
+.cta h2{font-size:clamp(1.6rem,1.2rem + 1.5vw,2.3rem); max-width:24em; letter-spacing:-0.022em}
+.cta .lede{margin-top:1rem; max-width:36em}
+.cta-actions{display:flex; flex-wrap:wrap; gap:.65rem; margin-top:1.75rem}
+footer{border-top:1px solid var(--rule); padding:2rem 0 3rem; font-family:var(--sans); font-size:.75rem; color:var(--ink-3)}
+footer .cols{display:flex; flex-wrap:wrap; gap:1rem 2.5rem; justify-content:space-between}
+footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+@media print{
+  body{background:#fff; font-size:10.5pt}
+  .drop,.drop-actions,.chart-foot,.cta-actions,.privacy{display:none!important}
+  details{open:true}
+  .finding,.assume,.rule-item{break-inside:avoid}
+  .rule-body,.f-body,.assume-body{display:block!important}
+  section{break-before:auto; page-break-inside:auto}
+  a{color:var(--ink); text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="wordmark">Plannett Gunnett<sup>‚Ñ¢</sup></div>
+    <div class="tag">Designing better business systems ‚Äî for people, the planet &amp; long-term prosperity</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Field note 01 ¬∑ Operating efficiency</p>
+    <h1>The drag you can't see is <em>cheaper to remove</em> than the demand you don't have.</h1>
+    <p class="lede">Most small businesses respond to a growth problem by buying more demand. In two and a half years of consulting I almost never found demand to be the binding constraint. The constraint was the delivery system ‚Äî and nobody could see it, because the waste was distributed one email, one approval, one re-do at a time.</p>
+    <p class="byline">
+      <span>By Siera Gunnett</span><span>¬∑</span><span>Business systems consultant</span><span>¬∑</span>
+      <span>Includes a working audit ‚Äî drop in your own files below</span>
+    </p>
+  </div>
+
+  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 01 THESIS ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <section id="thesis">
+    <div class="sec-head">
+      <div class="sec-num">01</div>
+      <div>
+        <h2>Four propositions</h2>
+        <p>None of these are intuitive. All four are why the obvious move is usually the wrong one.</p>
+      </div>
+    </div>
+    <ul class="props">
+      <li>
+        <h3><span>I</span> Marketing multiplies a system. It does not repair one.</h3>
+        <p>If 30% of your delivery is rework, marketing spend buys you 30% more rework ‚Äî at full price, with a customer attached. Demand poured into a leaking system converts into churn and reputation damage, which are far more expensive than the ad spend that caused them.</p>
+      </li>
+      <li>
+        <h3><span>II</span> AI's real return isn't the work. It's the work <em>between</em> the work.</h3>
+        <p>The intuitive use is generating content. The high-return use is triage, extraction, summarisation and drafting ‚Äî the coordination layer nobody bills for and everybody pays for. That layer is where a small team quietly loses its week.</p>
+      </li>
+      <li>
+        <h3><span>III</span> Only two line items appreciate: your product and your people.</h3>
+        <p>An ad impression has a half-life measured in hours. A fixed defect, a written process, a senior hire ‚Äî these keep paying out for years and reduce the cost of everything downstream. Expense versus asset is the whole decision.</p>
+      </li>
+      <li>
+        <h3><span>IV</span> Coordination cost grows faster than headcount.</h3>
+        <p>Communication paths scale as <span class="sans">n(n‚àí1)/2</span>. Going from 6 to 12 people quadruples the paths. This is exactly the size at which most founders hire a marketer instead of fixing how decisions get made ‚Äî and then wonder why the team feels slower at twice the size.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 02 COUNTERINTUITIVE ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <section id="rules">
+    <div class="sec-head">
+      <div class="sec-num">02</div>
+      <div>
+        <h2>Six places intuition fails</h2>
+        <p>Each one is a move I watched intelligent operators make, the mechanism that makes it backfire, and what works instead. Expand any of them.</p>
+      </div>
+    </div>
+    <div class="rules">
+
+      <details class="rule-item">
+        <summary><span class="rule-n">01</span><span class="rule-t">Hiring to fix throughput usually reduces throughput first</span><span class="rule-mark" aria-hidden="true">+</span></summary>
+        <div class="rule-body">
+          <div class="vs">
+            <div class="intuit"><span class="k">The intuitive move</span><p>We're at capacity, so add a person. Capacity goes up by one person's worth.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>Output falls for one to two quarters. The new hire produces at a fraction of full rate while consuming a meaningful share of your <em>best</em> person's time, and every existing communication path multiplies.</p></div>
+          </div>
+          <p class="mech"><b>Mechanism:</b> onboarding is a transfer from your highest-value capacity to your lowest. If the process isn't written down, the transfer happens verbally ‚Äî so the cost lands on whoever holds the knowledge, who is invariably the person you could least afford to slow down. <b>Do first:</b> document the role before you fill it. The document is what makes the hire cheap, and writing it frequently reveals the role wasn't needed.</p>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary><span class="rule-n">02</span><span class="rule-t">The busiest step is rarely the bottleneck</span><span class="rule-mark" aria-hidden="true">+</span></summary>
+        <div class="rule-body">
+          <div class="vs">
+            <div class="intuit"><span class="k">The intuitive move</span><p>Find whoever is most overloaded and help them. That's clearly where things are stuck.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>You optimise a step that wasn't constraining anything and the lead time barely moves. The real bottleneck is a <em>queue</em> ‚Äî work sitting still, waiting on a decision, invisible because nobody is busy with it.</p></div>
+          </div>
+          <p class="mech"><b>Mechanism:</b> busyness is a measure of utilisation; bottlenecks are a property of flow. By Little's Law, lead time = work-in-progress √∑ throughput, so the fastest way to shorten delivery is usually to <em>reduce how much is in flight at once</em> ‚Äî not to speed anyone up. <b>Do first:</b> measure where work waits, not where people work. Waiting is nearly always the majority of elapsed time.</p>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary><span class="rule-n">03</span><span class="rule-t">"Everyone is fully booked" is a warning, not an achievement</span><span class="rule-mark" aria-hidden="true">+</span></summary>
+        <div class="rule-body">
+          <div class="vs">
+            <div class="intuit"><span class="k">The intuitive move</span><p>Push utilisation toward 100%. Idle time is waste, and we're paying for the hours either way.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>Past roughly 85%, lead times don't rise gently ‚Äî they rise sharply and then explode. Every small disruption now propagates, because there is no slack anywhere to absorb it.</p></div>
+          </div>
+          <p class="mech"><b>Mechanism:</b> queueing theory. Waiting time scales with <span class="sans">œÅ/(1‚àíœÅ)</span> ‚Äî at 80% utilisation the ratio is 4; at 95% it is 19. The last 15% of utilisation you squeeze out costs you multiples in delivery time and blows up variability, which customers experience as unreliability. <b>Do first:</b> treat 80‚Äì85% as the target, and protect the slack deliberately. Slack is not idleness; it is the shock absorber that keeps promises credible.</p>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary><span class="rule-n">04</span><span class="rule-t">Automating a bad process makes it permanent</span><span class="rule-mark" aria-hidden="true">+</span></summary>
+        <div class="rule-body">
+          <div class="vs">
+            <div class="intuit"><span class="k">The intuitive move</span><p>This task eats four hours a week. Automate it ‚Äî or point AI at it ‚Äî and reclaim four hours.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>You've now spent money making an unnecessary step fast, cheap, and permanent. Automation confers legitimacy: nobody questions a step that runs itself, so the step outlives every reason for its existence.</p></div>
+          </div>
+          <p class="mech"><b>Mechanism:</b> the cheapest efficiency gain is <b>deletion</b>, and deletion has to come first ‚Äî the order is eliminate, simplify, standardise, then automate. Skipping to the last step is what produces an expensive tool nobody can explain. <b>Do first:</b> ask who consumes the output and what decision it changes. A startling share of recurring reports have no reader and change no decision.</p>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary><span class="rule-n">05</span><span class="rule-t">Adding a meeting to fix communication adds a communication problem</span><span class="rule-mark" aria-hidden="true">+</span></summary>
+        <div class="rule-body">
+          <div class="vs">
+            <div class="intuit"><span class="k">The intuitive move</span><p>People aren't aligned, so book a recurring sync. Everyone hears the same thing at the same time.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>A weekly hour with seven people is not one hour ‚Äî it is seven hours a week, roughly 320 a year, and it fragments two working days for everyone attending. Misalignment usually persists, because the actual failure was that no decision was ever written down.</p></div>
+          </div>
+          <p class="mech"><b>Mechanism:</b> meetings are a synchronous fix for what is nearly always an artefact problem. If a decision isn't recorded with an owner and a date, it will be re-litigated ‚Äî and a recurring meeting is simply a scheduled place to re-litigate it. <b>Do first:</b> require every recurring meeting to output a written decision with a named owner. Meetings that can't produce one get deleted, and the calendar audits itself.</p>
+        </div>
+      </details>
+
+      <details class="rule-item">
+        <summary><span class="rule-n">06</span><span class="rule-t">Cutting price is an efficiency decision disguised as a sales decision</span><span class="rule-mark" aria-hidden="true">+</span></summary>
+        <div class="rule-body">
+          <div class="vs">
+            <div class="intuit"><span class="k">The intuitive move</span><p>Discount 10% to win more volume. We'll make it back on scale.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>On a 40% gross margin, a 10% discount removes a quarter of your contribution per unit ‚Äî so you need roughly a third more volume just to stand still, delivered by the same team that was already near its ceiling. Volume you can't deliver well converts to churn.</p></div>
+          </div>
+          <p class="mech"><b>Mechanism:</b> price cuts hit contribution margin directly, while efficiency gains raise it. The two are the same lever pulled in opposite directions, but only one of them also increases your capacity to serve. <b>Do first:</b> compute the volume required to break even on the discount, and ask honestly whether your delivery system could absorb it. Usually the answer settles the question.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 03 AUDIT ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <section id="audit">
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <div>
+        <h2>The audit</h2>
+        <p>Arguments are cheap. Drop in real material ‚Äî inbox exports, meeting notes, an ops log, a project tracker ‚Äî and this page reads it for the signatures of drag, credits what you're already doing well, and prices the gap.</p>
+      </div>
+    </div>
+
+    <p class="privacy">
+      <span class="ic" aria-hidden="true">‚óÜ</span>
+      <span><b>Nothing leaves this page ‚Äî and it can't.</b> Your files are read into your browser's memory and analysed by JavaScript running on this page. There is no server, no upload, no account, no cookie, and no analytics. Nothing is stored: close the tab and the contents are gone.
+      <br><br>
+      This is enforced, not just promised. The page ships a Content Security Policy that blocks all outbound connections and all external scripts, so no code here ‚Äî mine or anyone's ‚Äî is able to transmit your data. You can verify it: save the file, disconnect from the internet, and it still works. Because no personal data ever reaches me or any third party, nothing you drop in here creates a processor relationship under GDPR ‚Äî you remain the sole controller of your own material throughout.
+      <br><br>
+      <b>One caution.</b> The audit quotes real lines from your files on screen, including names. If you export this page to PDF or screenshot it, those quotes travel with it ‚Äî so treat the output as confidential to the same degree as the input.</span>
+    </p>
+
+    <div class="drop" id="drop">
+      <h3>Drop files here</h3>
+      <p>Plain-text formats: <span class="sans">.txt .md .csv .tsv .log .eml .json .vtt .srt</span> ‚Äî email exports, meeting notes, Slack exports, task lists, transcripts. Multiple files welcome; larger samples give better estimates.</p>
+      <div class="drop-actions">
+        <button class="btn" id="pick" type="button">Choose files</button>
+        <button class="btn ghost" id="sample" type="button">Run the worked example instead</button>
+      </div>
+      <input type="file" id="file" multiple class="vh"
+             accept=".txt,.md,.markdown,.csv,.tsv,.log,.eml,.mbox,.json,.vtt,.srt,text/*">
+      <ul class="filelist" id="filelist"></ul>
+      <p class="status" id="status"></p>
+    </div>
+
+    <details class="paste" id="pasteBox">
+      <summary>Notes in Word, Google Docs, or a PDF? Paste the text instead
+        <span>works identically ‚Äî same analysis, same privacy</span></summary>
+      <div class="paste-body">
+        <p style="font-family:var(--sans);font-size:.8125rem;color:var(--ink-2);margin:0 0 .7rem;line-height:1.5">
+          This tool deliberately cannot open <span class="sans">.docx</span> or <span class="sans">.pdf</span>: parsing them needs an external code library, and loading one would break the guarantee that nothing on this page can reach the network. Selecting all and pasting is the honest workaround. Meeting notes work best when each block keeps its <span class="sans">Attendees:</span> and <span class="sans">Duration:</span> lines ‚Äî that is what lets the audit price meetings from real numbers rather than estimates.
+        </p>
+        <label for="pasteArea" class="vh">Paste meeting notes, emails, or an activity log</label>
+        <textarea id="pasteArea" spellcheck="false"
+          placeholder="Paste meeting notes, emails, or a task log here.&#10;&#10;Example of a meeting block the audit can price exactly:&#10;&#10;# Weekly Production Sync&#10;Attendees: Alex, Sam, Rae, Jo, Kim&#10;Duration: 60 min&#10;Recurring, every Monday.&#10;- Went through status one by one&#10;- Picked it up again next week"></textarea>
+        <div class="row">
+          <button class="btn sm" id="pasteRun" type="button">Analyse pasted text</button>
+          <button class="btn ghost sm" id="pasteClear" type="button">Clear</button>
+          <span class="hint">Nothing you paste is stored or transmitted.</span>
+        </div>
+      </div>
+    </details>
+
+    <div class="results" id="results" hidden aria-live="polite">
+      <div class="res-head">
+        <h3 id="resTitle">Findings</h3>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div id="findings"></div>
+      <div id="strengths"></div>
+    </div>
+  </section>
+
+  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 04 QUANTIFY ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <section id="quantify">
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <div>
+        <h2>What it costs</h2>
+        <p>Every number below traces to an input you can change. The coefficients are estimates, and they are all visible ‚Äî open the assumptions panel and argue with them. That is the point.</p>
+      </div>
+    </div>
+
+    <div class="hero-fig">
+      <div class="lbl">Annual cost of the drag detected in these files</div>
+      <div class="val" id="heroVal">‚Äî</div>
+      <div class="sub" id="heroSub">Load files or the worked example to compute.</div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile"><div class="lbl">Team-hours lost per week</div><div class="val" id="tHrs">‚Äî</div><div class="note" id="tHrsN">across the whole team</div></div>
+      <div class="tile"><div class="lbl">Full-time equivalent</div><div class="val" id="tFte">‚Äî</div><div class="note">people-worth of pure coordination</div></div>
+      <div class="tile"><div class="lbl">Share of team capacity</div><div class="val" id="tCap">‚Äî</div><div class="note">recoverable without hiring</div></div>
+      <div class="tile"><div class="lbl">Addressable with AI today</div><div class="val" id="tAi">‚Äî</div><div class="note">of recoverable hours, weighted by task type</div></div>
+    </div>
+
+    <details class="assume" id="assumeBox">
+      <summary>Assumptions &amp; coefficients <span>every figure on this page derives from these ‚Äî open and edit</span></summary>
+      <div class="assume-body">
+
+        <div class="grp">
+          <h4>The business</h4>
+          <div class="fields">
+            <div class="f"><label for="a_team">People on the team</label><input type="number" id="a_team" value="9" min="1" max="500" step="1"><span class="unit">FTE</span></div>
+            <div class="f"><label for="a_rate">Blended fully-loaded cost</label><input type="number" id="a_rate" value="58" min="1" step="1"><span class="unit">$/hr</span></div>
+            <div class="f"><label for="a_hpw">Working hours per person</label><input type="number" id="a_hpw" value="40" min="1" max="80" step="1"><span class="unit">/wk</span></div>
+            <div class="f"><label for="a_wpy">Working weeks per year</label><input type="number" id="a_wpy" value="46" min="1" max="52" step="1"><span class="unit">/yr</span></div>
+            <div class="f"><label for="a_cust">Current customers / active clients</label><input type="number" id="a_cust" value="45" min="1" step="1"><span class="unit">#</span></div>
+            <div class="f"><label for="a_arpu">Revenue per customer</label><input type="number" id="a_arpu" value="2400" min="1" step="50"><span class="unit">$/mo</span></div>
+            <div class="f"><label for="a_margin">Gross margin</label><input type="number" id="a_margin" value="40" min="1" max="99" step="1"><span class="unit">%</span></div>
+            <div class="f"><label for="a_hpc">Delivery hours per customer</label><input type="number" id="a_hpc" value="22" min="0.1" step="0.5"><span class="unit">h/mo</span></div>
+          </div>
+        </div>
+
+        <div class="grp">
+          <h4>Reading the evidence</h4>
+          <div class="fields">
+            <div class="f"><label for="a_period">Period these files cover</label><input type="number" id="a_period" value="4" min="0.25" step="0.25"><span class="unit">weeks</span></div>
+            <div class="f"><label for="a_coverage">Share of the team's comms these files represent</label><input type="number" id="a_coverage" value="100" min="1" max="100" step="5"><span class="unit">%</span></div>
+            <div class="f"><label for="a_meetdur">Assumed length when a meeting states none</label><input type="number" id="a_meetdur" value="60" min="5" step="5"><span class="unit">min</span></div>
+          </div>
+          <p class="caveat" style="margin-top:1rem;padding-top:0;border:0"><b>Why coverage matters.</b> A sample of your inbox shows only a sample of the waste. Detected hours are divided by the period, then grossed up by this figure to estimate the whole. <b>It ships at 100% deliberately</b> ‚Äî that reports only what is literally present in the files you provided, which is the defensible floor and the number to quote to anyone who will push back. Lower it only if you know these files are a partial view, and say so when you cite the result. Every percentage point below 100 makes the headline figure larger and harder to defend.</p>
+        </div>
+
+        <div class="grp">
+          <h4>Hours per detected instance</h4>
+          <div class="fields" id="coefFields"></div>
+          <p class="caveat" style="margin-top:1rem;padding-top:0;border:0">Meeting hours are not coefficient-based ‚Äî they are computed from stated attendee counts and durations. Tool sprawl is computed as a context-switching share of total team hours, not per instance.</p>
+        </div>
+
+        <div class="grp">
+          <h4>The reinvestment model</h4>
+          <div class="fields">
+            <div class="f"><label for="a_budget">Monthly budget in play</label><input type="number" id="a_budget" value="6000" min="0" step="250"><span class="unit">$/mo</span></div>
+            <div class="f"><label for="a_cac">Cost to acquire a customer</label><input type="number" id="a_cac" value="1800" min="1" step="50"><span class="unit">$</span></div>
+            <div class="f"><label for="a_churn">Monthly churn, healthy state</label><input type="number" id="a_churn" value="4" min="0.1" max="50" step="0.1"><span class="unit">%</span></div>
+            <div class="f"><label for="a_organic">Organic / referral acquisition</label><input type="number" id="a_organic" value="1.2" min="0" step="0.1"><span class="unit">cust/mo</span></div>
+            <div class="f"><label for="a_tau">Months to implement the fixes</label><input type="number" id="a_tau" value="9" min="1" max="36" step="1"><span class="unit">mo</span></div>
+            <div class="f"><label for="a_conv">Freed hours converted to delivered work</label><input type="number" id="a_conv" value="55" min="0" max="100" step="5"><span class="unit">%</span></div>
+            <div class="f"><label for="a_target">Safe utilisation ceiling</label><input type="number" id="a_target" value="85" min="50" max="100" step="1"><span class="unit">%</span></div>
+            <div class="f"><label for="a_overload">Churn penalty per point over ceiling</label><input type="number" id="a_overload" value="6" min="0" step="0.5"><span class="unit">√ó</span></div>
+            <div class="f"><label for="a_switch">Start marketing in the sequenced plan at</label><input type="number" id="a_switch" value="7" min="1" max="24" step="1"><span class="unit">month</span></div>
+          </div>
+        </div>
+
+        <p class="caveat">
+          <b>What this is and isn't.</b> Detection is keyword- and structure-based. It finds the linguistic <em>signatures</em> of drag ‚Äî a person asking for the fourth time, a version numbered v4, a meeting with seven attendees and no recorded decision. A negation guard drops lines that carry the keywords but mean the opposite ("nobody has to do that manually now"), and meeting blocks are bounded so a later decision cannot be credited to an earlier meeting that recorded nothing. It still cannot know whether a given instance was justified, and it will miss waste that nobody wrote down. Treat the output as a directional map of where to look and a defensible order of operations, not a diagnosis. Every serious engagement starts here and then goes and watches the actual work.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 05 FORK ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <section id="fork">
+    <div class="sec-head">
+      <div class="sec-num">05</div>
+      <div>
+        <h2>The fork</h2>
+        <p>Same budget, three strategies, 24 months. The model gives all three the same customers, the same margin, and the same team ‚Äî the only difference is where the money goes and what that does to the ceiling on what you can deliver.</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-top">
+        <div>
+          <h3>Cumulative contribution margin, net of the budget spent</h3>
+          <div class="sub" id="chartSub">All three paths spend the same amount each month.</div>
+        </div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="chart-scroll" id="chartScroll">
+        <svg id="chart" viewBox="0 0 880 380" role="img" tabindex="0"
+             aria-labelledby="chartTitle" aria-describedby="chartDesc"></svg>
+        <div class="tip" id="tip" role="status"></div>
+      </div>
+      <h4 id="chartTitle" class="vh">Cumulative contribution margin over 24 months under three strategies</h4>
+      <p id="chartDesc" class="vh">A line chart comparing marketing-first, efficiency-first, and sequenced strategies. Full values are available in the table view below.</p>
+      <div class="chart-foot">
+        <span class="hint">Hover or focus the chart and use ‚Üê ‚Üí to read any month.</span>
+        <button class="btn ghost sm" id="tvToggle" type="button" aria-expanded="false" aria-controls="tvWrap">Show table view</button>
+      </div>
+      <div id="tvWrap" hidden></div>
+    </div>
+
+    <div class="verdict">
+      <div class="k">What the model says</div>
+      <p id="verdict">Load files or the worked example to run the comparison.</p>
+      <p id="verdict2"></p>
+    </div>
+  </section>
+
+  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 06 HONESTY ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <section id="honesty">
+    <div class="sec-head">
+      <div class="sec-num">06</div>
+      <div>
+        <h2>When I'd tell you to spend on marketing instead</h2>
+        <p>A thesis that always wins isn't a thesis, it's a sales pitch. The argument above is about sequencing, not about marketing being bad. Three cases where the order flips.</p>
+      </div>
+    </div>
+    <div class="honest">
+      <div>
+        <h3>You have genuine slack</h3>
+        <p>If utilisation is comfortably under the ceiling and delivery quality holds, you have paid-for capacity sitting idle. Filling it is the highest-return thing available and efficiency work can wait ‚Äî the model reflects this, and will say so.</p>
+      </div>
+      <div>
+        <h3>The product is proven and retention is strong</h3>
+        <p>Low churn is evidence the delivery system already works. Efficiency work then competes against a compounding acquisition machine, and usually loses. Fix-first is for businesses whose churn or rework is telling them something.</p>
+      </div>
+      <div>
+        <h3>A window is closing</h3>
+        <p>Seasonality, a competitor's exit, a regulatory or platform shift. Timing value is real and process work is rarely urgent. Take the window ‚Äî but book the debt honestly, because you will pay it during the growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <p class="eyebrow">Where this goes next</p>
+    <h2>This page finds the shape of the problem. The work is in what you delete.</h2>
+    <p class="lede">A keyword pass over your inbox is a starting map, not an answer. The engagement is watching the actual work, ranking fixes by effort against recovered capacity, and deleting before automating ‚Äî in that order.</p>
+    <div class="cta-actions">
+      <a class="btn" href="https://www.instagram.com/plannettgunnett/">Plannett Gunnett on Instagram</a>
+      <button class="btn ghost" id="printBtn" type="button">Save this page as PDF</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="cols">
+      <div style="flex:1 1 28rem">
+        <p><b>Method.</b> Detection is regex and structure matching over plain text, run locally. Meeting cost is computed from stated attendee counts and durations where present. The 24-month model is a monthly cohort simulation with a capacity constraint: delivered revenue is capped by available delivery hours, and churn rises in proportion to how far utilisation exceeds the stated ceiling.</p>
+        <p><b>Concepts referenced.</b> Little's Law (lead time = WIP √∑ throughput); Kingman's approximation for queue growth near saturation; the eliminate‚Äìsimplify‚Äìstandardise‚Äìautomate ordering from lean process design; contribution-margin arithmetic on discounting.</p>
+        <p><b>Accessibility.</b> Text and interface colours meet WCAG 2.1 AA contrast on this surface. Severity is carried by a label as well as a colour, the chart is keyboard-navigable with a full table-view equivalent, and the chart palette was validated for protanopia and deuteranopia separation rather than chosen by eye.</p>
+        <p><b>Privacy.</b> This page collects nothing. No server receives your files, no cookies are set, no analytics run, and no data is stored between visits ‚Äî enforced by a Content Security Policy that blocks all outbound connections and external scripts, not merely by this paragraph. Because no personal data reaches the author or any third party, no controller-processor relationship arises under the GDPR or the LOPDGDD; you remain the controller of your own material. Any names or client details visible in the results came from your files and exist only in your browser's memory until you close the tab.</p>
+        <p><b>No warranty, and not professional advice.</b> This tool is provided free and as-is, without warranty of any kind. Its output is a directional, keyword-based indication of where to look ‚Äî not an audit, a valuation, or accounting, legal, tax, or investment advice. The figures are estimates produced from assumptions you can and should change, and they will be wrong in ways specific to your business. Do not make hiring, spending, pricing, or investment decisions on this output alone; verify against your own records and take professional advice where it matters. No liability is accepted for decisions taken in reliance on it.</p>
+        <p><b>The worked example is fictional.</b> "Meridian Studio" and every person, client, project, and figure in the sample data are invented for demonstration. Any resemblance to a real business or person is coincidental.</p>
+        <p><b>Trademarks.</b> Product and service names detected by this tool ‚Äî Slack, QuickBooks, Asana, Notion, Xero, HubSpot and others ‚Äî are trademarks of their respective owners, referenced only to identify systems named in your text. No affiliation, sponsorship, or endorsement is implied or claimed.</p>
+      </div>
+      <div style="flex:0 1 14rem">
+        <p><b>Plannett Gunnett‚Ñ¢</b><br>Designing better business systems.<br>For people, the planet &amp; long-term prosperity.</p>
+        <p>Field note 01 ¬∑ By Siera Gunnett</p>
+        <p><b>Free to use and to share.</b> Use this on your own business or a client's at no cost. Save the file and run it offline if you prefer. Please keep the attribution intact.</p>
+        <p style="color:var(--ink-4)">¬© 2026 Siera Gunnett. Last updated August 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+"use strict";
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+   No network calls anywhere in this file. Files are read with FileReader only.
+   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+const fmtMoney = (n) => {
+  const a = Math.abs(n);
+  const s = n < 0 ? '‚àí' : '';
+  if (a >= 1e6) return s + '$' + (a/1e6).toFixed(a >= 1e7 ? 1 : 2) + 'M';
+  if (a >= 1e4) return s + '$' + Math.round(a/1e3) + 'K';
+  return s + '$' + Math.round(a).toLocaleString('en-US');
+};
+const fmtMoneyFull = (n) => (n < 0 ? '‚àí' : '') + '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+const fmtNum = (n, d=1) => n.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê DETECTORS ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* Each category: linguistic signatures of a specific kind of operational drag.
+   `hrs` = default hours of team time per detected instance (editable in the UI).
+   `ai`  = share of those hours realistically addressable with current tooling. */
+
+const CATS = [
+  {
+    id:'manual', label:'Manual repetition', sev:'critical', hrs:0.75, ai:0.70,
+    why:'Work a person performs by hand on a schedule. This is the single highest-return category because the cost is recurring and the fix is usually one-time.',
+    fix:'Before automating any of it, ask what decision the output changes and who reads it. Delete what fails that test; standardise what survives; automate last.',
+    aiNote:'Extraction, data entry, and first-draft generation are the most mature AI capabilities available. This is where tooling pays back fastest.',
+    re: /\b(manual(?:ly)?|by hand|copy(?:ing)?[ -]?(?:and[ -])?past(?:e|es|ing)|re-?(?:type|typing|enter|entering|key)(?:ing)?|export(?:ing)? (?:it|them|the|to|into)|download(?:ing)? and (?:upload|import|enter)|every (?:single )?(?:week|month|day|monday|tuesday|wednesday|thursday|friday|morning|quarter)|each (?:week|month|day|quarter)|reconcil(?:e|es|ing|iation)|update (?:the|our) (?:spreadsheet|sheet|tracker|log|master)|chas(?:e|es|ing) (?:invoices?|payments?|timesheets?|people|clients?)|re-?run(?:ning)? the (?:report|numbers)|stitch(?:ing)? together|cross-?check(?:ing)? (?:by hand|manually))\b/i
+  },
+  {
+    id:'rework', label:'Rework & version churn', sev:'critical', hrs:0.5, ai:0.35,
+    why:'Work done more than once. Pure waste ‚Äî it consumed capacity and produced nothing new. It is also the clearest evidence that requirements are entering the system unclear.',
+    fix:'Rework is a symptom, not a category to optimise. Trace instances back to the intake step and fix the brief, the spec, or the approval gate that let ambiguity through.',
+    aiNote:'Partly addressable: AI review passes catch spec gaps and inconsistencies before work starts. The larger share needs a process fix, not a tool.',
+    re: /\b(as (?:i|we) (?:mentioned|said|noted|discussed)|per my (?:last|previous) (?:email|message|note)|circl(?:e|ing) back|as (?:previously |already )?discussed|to reiterate|reiterating|redo|re-?do(?:ing)?|revis(?:e|ed|ing) (?:again|once more|the revision)|v[3-9]\b|_?final_?final|(?:version|rev) ?(?:[3-9]|1\d)\b|had to (?:fix|redo|rebuild|start over)|wrong (?:file|version|number|invoice|address|spec|drawing)|didn'?t match|does ?n'?t match (?:the|what)|resend(?:ing)?|sent the wrong|scrap(?:ped)? (?:it|that|the)|start(?:ing)? (?:over|from scratch)|third (?:draft|revision|attempt)|mistake|typo in the)\b/i
+  },
+  {
+    id:'meetings', label:'Meetings with no recorded decision', sev:'serious', hrs:0, ai:0.55,
+    why:'A recurring meeting that produces no written decision, owner, or next step. Cost is computed from stated attendee counts and durations, not estimated ‚Äî a weekly hour with seven people is roughly 320 team-hours a year.',
+    fix:'Require a written decision with a named owner and a date as the output of every recurring meeting. The ones that cannot produce one delete themselves, and the calendar audits itself from then on.',
+    aiNote:'Transcription plus decision extraction removes most of the note-taking and follow-up cost, and makes the no-decision meetings visible enough to kill.',
+    re: null
+  },
+  {
+    id:'approval', label:'Approval bottlenecks', sev:'serious', hrs:0.4, ai:0.30,
+    why:'Work halted pending one person\'s sign-off. The touch time is small; the queue time is not, and queue time is what the customer experiences as your lead time.',
+    fix:'Set spend and scope thresholds below which no approval is required, and name a deputy for everything above. The goal is fewer gates, not faster gatekeepers.',
+    aiNote:'Modest: policy checks can auto-clear routine cases below threshold. The real fix is a delegation decision, which is a governance change rather than a tool.',
+    re: /\b(needs? (?:your |his |her |their )?(?:approval|sign[- ]?off|review|ok|go[- ]?ahead)|wait(?:ing)? (?:on|for) (?:approval|sign[- ]?off|review|the ok|\w+ to (?:approve|sign|review|confirm))|pending (?:approval|review|sign[- ]?off)|await(?:ing)? (?:approval|sign[- ]?off|review)|(?:can|could) you (?:please )?(?:approve|sign off|review)|please approve|sign[- ]?off (?:on|from|needed|required)|blocked (?:by|on|until)|only (?:\w+ )?can (?:approve|authorise|authorize|sign)|has to go through|needs to go through|gatekeep(?:er|ing)|bottleneck)\b/i
+  },
+  {
+    id:'waiting', label:'Chasing & waiting', sev:'serious', hrs:0.3, ai:0.50,
+    why:'Someone spending time asking for something they already asked for. Each instance also marks a stalled item ‚Äî the visible tip of queue time, which is usually the majority of total elapsed time.',
+    fix:'Chasing means the handoff has no due date or no owner. Add both at the handoff, and the follow-up disappears rather than being automated.',
+    aiNote:'Well addressed: automated status polling and follow-up drafting remove most of the human chase loop once ownership and dates exist.',
+    re: /\b(still wait(?:ing)?|any update|just (?:bumping|checking|following up)|bump(?:ing)? this|gentle (?:nudge|reminder)|friendly reminder|check(?:ing)? in on (?:this|that|the)|did you (?:get|see|receive) (?:my|the)|(?:second|third|fourth) (?:request|reminder|time asking|attempt)|no response|not heard back|haven'?t heard (?:back|from)|following up again|chase(?:d|r)? (?:this|them|again)|ping(?:ed|ing)? (?:you|him|her|them) again|as promised last)\b/i
+  },
+  {
+    id:'pingpong', label:'Thread ping-pong', sev:'warning', hrs:0.4, ai:0.60,
+    why:'A decision being made asynchronously across many messages. Long threads are a reliable marker of a decision with no clear owner or no clear rule to resolve it.',
+    fix:'Set a hop limit as a norm: past three exchanges, someone owns the decision or it becomes a fifteen-minute call. Then write the rule down so the same thread never recurs.',
+    aiNote:'Well addressed: summarisation and drafting collapse most of the reading and reply cost, and thread summaries surface the missing decision.',
+    re: null
+  },
+  {
+    id:'sprawl', label:'Tool sprawl & swivel-chair work', sev:'warning', hrs:0, ai:0.40,
+    why:'Every additional system where the same information lives is a place it can disagree with itself, plus a re-entry cost and a context switch. Cost here is modelled as a share of total team hours rather than per instance.',
+    fix:'Establish one system of record per data type and make everything else read from it. Consolidation beats integration; integration beats manual re-entry.',
+    aiNote:'Partly addressed: retrieval across systems reduces the hunting cost, but it treats the symptom. Consolidation is the actual fix.',
+    re: null
+  }
+];
+
+const TOOLS = ['Slack','Teams','Zoom','Google Meet','Notion','Asana','Trello','Monday.com','Monday','Jira','ClickUp','Airtable','Google Sheets','Sheets','Excel','Google Drive','Dropbox','Box','QuickBooks','Xero','FreshBooks','Stripe','Square','PayPal','HubSpot','Salesforce','Pipedrive','Mailchimp','Klaviyo','Shopify','Squarespace','Calendly','DocuSign','HelloSign','Gmail','Outlook','WhatsApp','Basecamp','Wrike','Smartsheet','Zapier','Make.com','Loom','Figma','Canva','Toggl','Harvest','Gusto','Rippling','Bill.com','Expensify','Zendesk','Intercom','Freshdesk','Typeform','Buildertrend','Procore','CoConstruct','Houzz','Jobber','ServiceTitan','Trainual','Confluence','Miro','Dext','Ramp','Brex'];
+
+const STRENGTHS = [
+  { id:'sop', label:'Documented process', why:'Written process is what makes a hire cheap, an absence survivable, and an improvement permanent. It is the highest-leverage asset a small team can hold.',
+    re:/\b(sop|standard operating procedure|playbook|runbook|checklist|template|documented|documentation|how-?to|wiki|process doc|written process|onboarding (?:doc|guide)|trainual|confluence)\b/i },
+  { id:'auto', label:'Automation already in place', why:'Evidence you have moved past doing things by hand. Worth auditing for the trap in rule 04 ‚Äî automation of a step that should have been deleted.',
+    re:/\b(automat(?:ed|es|ion|ically)|zapier|make\.com|workflow|auto-?(?:send|sync|assign|reply|generate|file)|scheduled report|recurring report|integration|webhook|api call|triggers? when)\b/i },
+  { id:'owner', label:'Clear ownership', why:'Named owners are what stop decisions being re-litigated. This single habit removes more meeting load than any tool.',
+    re:/\b(owner\s*:|dri\s*:|assigned to|responsible\s*:|accountable\s*:|point person|single (?:owner|point of contact)|owns (?:this|the))\b/i },
+  { id:'async', label:'Async-by-default habits', why:'Written updates and recordings scale without consuming everyone\'s calendar simultaneously, and they leave an artefact behind.',
+    re:/\b(async|asynchronous|written update|no[- ]meeting|pre-?read|read (?:this )?(?:before|ahead)|memo|recorded (?:it|a|walkthrough)|loom|written brief|status doc)\b/i },
+  { id:'decision', label:'Decisions written down', why:'A recorded decision with a date is the artefact that prevents the same conversation happening a third time.',
+    re:/\b(decision\s*:|decided\s*:|resolved\s*:|action items?\s*:|next steps?\s*:|agreed\s*:|conclusion\s*:|we will\b)\b/i },
+  { id:'measure', label:'Measurement in place', why:'You cannot tell whether a change worked without a baseline. Teams that already track something are dramatically faster to improve.',
+    re:/\b(kpi|dashboard|baseline|cycle time|lead time|throughput|utili[sz]ation|gross margin|contribution margin|nps|churn|cohort|conversion rate|win rate|metric)\b/i },
+  { id:'ai', label:'AI already in the workflow', why:'Adoption already started. The question shifts from whether to use it to whether it is pointed at coordination work rather than content.',
+    re:/\b(ai|a\.i\.|llm|gpt|chatgpt|claude|copilot|gemini|auto-?summar(?:y|ise|ize)|transcri(?:be|bed|ption|pt)|prompt(?:ed|ing)?)\b/i }
+];
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê FILE HANDLING ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+
+const OK_EXT = /\.(txt|md|markdown|csv|tsv|log|eml|mbox|json|vtt|srt|text)$/i;
+const RICH_EXT = /\.(docx?|pdf|pages|rtf|odt|xlsx?|numbers|pptx?|key)$/i;
+const MAX_BYTES = 8 * 1024 * 1024;       // per file
+const MAX_TOTAL = 20 * 1024 * 1024;      // across a whole drop
+const MAX_FILES = 40;
+const MAX_LINES = 400000;                // analysis guard: keeps the tab responsive
+let loadedFiles = [];   // {name, text}
+let analysis = null;
+
+function setStatus(msg, isErr) {
+  const el = $('status');
+  el.innerHTML = msg || '';
+  el.classList.toggle('err', !!isErr);
+}
+
+function readFiles(fileList) {
+  let files = Array.from(fileList);
+  if (!files.length) return;
+  if (files.length > MAX_FILES) {
+    setStatus(`Too many files at once ‚Äî reading the first ${MAX_FILES} of ${files.length}.`, true);
+    files = files.slice(0, MAX_FILES);
+  }
+  const rows = [];
+  let pending = 0, running = 0;
+  setStatus('Reading files‚Ä¶');
+  // Reset the sample's declared partiality so a user who tried the worked
+  // example first does not silently inherit its 50% gross-up on their own data.
+  $('a_period').value = 4;
+  $('a_coverage').value = 100;
+
+  const finish = () => {
+    if (pending !== 0) return;
+    renderFileList(rows);
+    loadedFiles = rows.filter(r => r.ok).map(r => ({ name:r.name, text:r.text }));
+    const bad = rows.filter(r => !r.ok);
+    const rich = bad.filter(r => r.rich);
+
+    if (!loadedFiles.length) {
+      // The most likely public failure mode: someone drops the .docx their
+      // notes actually live in. Say what to do instead of just rejecting it.
+      setStatus(rich.length
+        ? `<b>${esc(rich.map(r=>r.name).join(', '))}</b> can't be opened here ‚Äî reading Word, Pages or PDF needs an external library, and loading one would break this page's guarantee that nothing can reach the network. Open the file, select all, and use <b>paste the text instead</b> just below.`
+        : `Nothing readable in that ${files.length === 1 ? 'file' : 'selection'}. This audit reads plain text ‚Äî try .txt, .md, .csv or an .eml export, or paste the text below.`, true);
+      $('results').hidden = true;
+      return;
+    }
+    // Analysis is synchronous; yield a frame first so the status paints.
+    setStatus('Analysing‚Ä¶');
+    requestAnimationFrame(() => setTimeout(() => {
+      run();
+      const lines = analysis ? analysis.totalLines : 0;
+      let msg = `Read <b>${loadedFiles.length}</b> file${loadedFiles.length===1?'':'s'}, <b>${lines.toLocaleString('en-US')}</b> lines. Nothing was uploaded.`;
+      if (rich.length) msg += ` Skipped ${esc(rich.map(r=>r.name).join(', '))} ‚Äî paste that text below to include it.`;
+      else if (bad.length) msg += ` Skipped ${bad.length} unreadable file${bad.length===1?'':'s'}.`;
+      setStatus(msg);
+    }, 0));
+  };
+
+  let total = 0;
+  files.forEach(f => {
+    const looksText = OK_EXT.test(f.name) || /^text\//.test(f.type) || f.type === 'application/json';
+    if (!looksText) { rows.push({ name:f.name, ok:false, rich:RICH_EXT.test(f.name), note: RICH_EXT.test(f.name) ? 'needs pasting' : 'not plain text' }); return; }
+    if (f.size > MAX_BYTES) { rows.push({ name:f.name, ok:false, note:'over 8MB' }); return; }
+    total += f.size;
+    if (total > MAX_TOTAL) { rows.push({ name:f.name, ok:false, note:'total size limit' }); return; }
+    pending++; running++;
+    const fr = new FileReader();
+    fr.onload  = () => { rows.push({ name:f.name, ok:true, text:String(fr.result || ''), size:f.size }); pending--; finish(); };
+    fr.onerror = () => { rows.push({ name:f.name, ok:false, note:'could not read' }); pending--; finish(); };
+    fr.readAsText(f);
+  });
+  if (running === 0) finish();
+}
+
+function renderFileList(rows) {
+  $('filelist').innerHTML = rows.map(r =>
+    `<li class="${r.ok ? '' : 'bad'}">${esc(r.name)}${r.ok ? '' : ' ‚Äî ' + esc(r.note)}</li>`
+  ).join('');
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê ANALYSIS ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+
+/* Decision markers require their marker form, not the bare word: "no conclusion"
+   and "agreed it is a problem" both contain decision vocabulary while recording
+   no decision at all, and a loose pattern credits the meeting for them. */
+const DECISION_RE = /(\bdecision\s*:|\bdecided (?:to|that|on|against)\b|\bwe will\b|\bagreed (?:to|that|on)\b|\bagreed\s*:|\baction items?\s*:|\bnext steps?\s*:|\bowner\s*:|\bdri\s*:|\bassigned to\b|\bdue (?:by|on)\b|\bresolved\s*:|\bresolved to\b|\bapproved\s*:|\bconclusion\s*:)/i;
+
+/* Negation guard. "Nobody has to update the spreadsheet manually now" contains
+   every keyword for manual repetition and means the opposite. A line carrying a
+   resolved/negated cue is not counted as waste ‚Äî it is usually a fix already
+   shipped, which the strengths pass credits separately. */
+const NEG_RE = /\b(no longer|nobody (?:has|needs) to|no one (?:has|needs) to|don'?t have to|doesn'?t have to|does not have to|used to|we (?:fixed|automated|removed|deleted|solved)|now automat|already automat|instead of (?:manually|doing)|so we stopped|stopped (?:doing|having to))\b/i;
+const RECURRING_RE = /\b(weekly|biweekly|bi-weekly|fortnightly|monthly|daily|recurring|standing|every (?:monday|tuesday|wednesday|thursday|friday|week|month)|standup|stand-up|sync|check-?in|touch ?base|catch ?up|1:1|one-on-one|all-hands|status (?:meeting|call))\b/i;
+
+function analyze(files, assumeMeetMin) {
+  const hits = {};                 // catId -> [{file,line,text}]
+  CATS.forEach(c => hits[c.id] = []);
+  const strengthHits = {};
+  STRENGTHS.forEach(s => strengthHits[s.id] = []);
+
+  const meetings = [];
+  const subjects = new Map();
+  const nameCounts = new Map();
+  const toolsFound = new Set();
+  let totalLines = 0, totalWords = 0;
+  let mkt = 0, bld = 0;
+  let truncated = false;   // MAX_LINES guard ‚Äî a huge drop must not hang the tab
+
+  const MKT_RE = /\b(ad spend|ads?\b|adwords|campaign|impressions?|cpm|cpc|cac|boost(?:ed)? (?:post|the)|agency|retainer with|influencer|paid (?:social|search|media)|billboard|flyer|sponsored|lead gen|leads?\b|seo|newsletter blast|promo(?:tion)?)\b/gi;
+  const BLD_RE = /\b(roadmap|hir(?:e|ing)|onboard(?:ing)?|training|upskill|product (?:work|fix|quality)|feature|bug|defect|documentation|sop|process|refactor|tooling|automation|quality control|qa\b|apprentice|mentor|equipment|capacity)\b/gi;
+
+  files.forEach(file => {
+    const text = file.text;
+    let lines = text.split(/\r?\n/);
+    if (totalLines + lines.length > MAX_LINES) {
+      lines = lines.slice(0, Math.max(0, MAX_LINES - totalLines));
+      truncated = true;
+    }
+    if (!lines.length) return;
+    totalLines += lines.length;
+    totalWords += (text.match(/\S+/g) || []).length;
+
+    mkt += (text.match(MKT_RE) || []).length;
+    bld += (text.match(BLD_RE) || []).length;
+
+    TOOLS.forEach(t => {
+      const re = new RegExp('(?:^|[^A-Za-z0-9])' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:[^A-Za-z0-9]|$)', 'i');
+      if (re.test(text)) toolsFound.add(t.replace(/^Monday$/, 'Monday.com').replace(/^Sheets$/, 'Google Sheets'));
+    });
+
+    lines.forEach((raw, i) => {
+      const line = raw.trim();
+      if (!line) return;
+
+      // per-category keyword pass, skipping lines that negate their own match
+      const negated = NEG_RE.test(line);
+      CATS.forEach(c => {
+        if (!c.re || negated) return;
+        const m = line.match(c.re);
+        if (m) hits[c.id].push({ file:file.name, line:i+1, text:line, match:m[0] });
+      });
+      STRENGTHS.forEach(s => {
+        const m = line.match(s.re);
+        if (m) strengthHits[s.id].push({ file:file.name, line:i+1, text:line, match:m[0] });
+      });
+
+      // subject lines -> thread depth
+      const sm = line.match(/^(?:subject|subj)\s*:\s*(.+)$/i);
+      if (sm) {
+        const rawSubj = sm[1].trim();
+        const depth = (rawSubj.match(/\b(?:re|fwd|fw)\s*:/gi) || []).length;
+        const norm = rawSubj.replace(/\b(?:re|fwd|fw)\s*:\s*/gi, '').trim().toLowerCase();
+        if (!norm) return;
+        const rec = subjects.get(norm) || { subject:rawSubj.replace(/\b(?:re|fwd|fw)\s*:\s*/gi,'').trim(), count:0, depth:0, file:file.name, line:i+1 };
+        rec.count++; rec.depth = Math.max(rec.depth, depth);
+        subjects.set(norm, rec);
+      }
+
+      // meetings: an Attendees: line anchors a meeting block
+      const am = line.match(/^attendees?\s*:\s*(.+)$/i);
+      if (am) {
+        const people = am[1].split(/[,;]|\band\b|\+/).map(s => s.trim().replace(/\(.*?\)/g,'').trim()).filter(s => s.length > 1);
+        people.forEach(p => {
+          const first = p.split(/\s+/)[0].replace(/[^A-Za-z'-]/g,'');
+          if (first.length > 1) nameCounts.set(first, (nameCounts.get(first) || 0) + 1);
+        });
+        // Bound the block at the surrounding meeting boundaries. A fixed
+        // lookahead bleeds into the next meeting, so a later "Decision:"
+        // wrongly credits an earlier meeting that recorded nothing.
+        const isBoundary = (s) => /^\s*#{1,4}\s+/.test(s) || /^\s*attendees?\s*:/i.test(s);
+        let bEnd = Math.min(lines.length, i + 80);
+        for (let j = i+1; j < bEnd; j++) if (isBoundary(lines[j])) { bEnd = j; break; }
+        let bStart = Math.max(0, i - 10);
+        for (let j = i-1; j >= bStart; j--) {
+          if (/^\s*#{1,4}\s+/.test(lines[j])) { bStart = j; break; }
+          if (/^\s*attendees?\s*:/i.test(lines[j])) { bStart = j+1; break; }
+        }
+        const win = lines.slice(bStart, bEnd).join('\n');
+        let mins = null;
+        const dm = win.match(/\b(\d{1,3})\s*(?:min|mins|minutes)\b/i);
+        const dh = win.match(/\b(\d(?:\.\d)?)\s*(?:hr|hrs|hour|hours)\b/i);
+        if (dm) mins = +dm[1]; else if (dh) mins = Math.round(+dh[1] * 60);
+        let title = '';
+        for (let k = i-1; k >= Math.max(0, i-8); k--) {
+          const t = lines[k].trim();
+          if (/^#{1,4}\s+/.test(t)) { title = t.replace(/^#+\s+/, ''); break; }
+          if (/^(?:meeting|title|subject)\s*:/i.test(t)) { title = t.replace(/^[^:]+:\s*/, ''); break; }
+          if (!title && t && /^[A-Z].{4,80}$/.test(t) && !/[.!?]$/.test(t)) title = t;
+        }
+        meetings.push({
+          file:file.name, line:i+1, title: title || 'Untitled meeting',
+          people: people.length || 1, mins: mins || assumeMeetMin, assumed: mins === null,
+          hasDecision: DECISION_RE.test(win), recurring: RECURRING_RE.test(win)
+        });
+      }
+
+      // explicit key-person statements
+      const om = line.match(/\bonly (\w+)(?:'s)? (?:knows|can|has|does|understands|is able)/i);
+      if (om) nameCounts.set(om[1], (nameCounts.get(om[1]) || 0) + 3);
+      const wm = line.match(/\bwait(?:ing)? (?:on|for) ([A-Z][a-z]+)/);
+      if (wm) nameCounts.set(wm[1], (nameCounts.get(wm[1]) || 0) + 2);
+    });
+  });
+
+  // derive thread ping-pong hits
+  const threads = [...subjects.values()].filter(t => t.depth >= 3 || t.count >= 4)
+    .sort((a,b) => (b.depth + b.count) - (a.depth + a.count));
+  hits.pingpong = threads.map(t => ({
+    file:t.file, line:t.line,
+    text:`"${t.subject}" ‚Äî ${t.count} message${t.count===1?'':'s'} in thread, Re: depth ${t.depth}`,
+    match:t.subject
+  }));
+
+  // meeting cost
+  const noDecision = meetings.filter(m => !m.hasDecision);
+  const meetingHours = noDecision.reduce((s,m) => s + m.people * (m.mins/60), 0);
+  const allMeetingHours = meetings.reduce((s,m) => s + m.people * (m.mins/60), 0);
+  hits.meetings = noDecision.map(m => ({
+    file:m.file, line:m.line,
+    text:`${m.title} ‚Äî ${m.people} attendee${m.people===1?'':'s'} √ó ${m.mins} min${m.assumed?' (duration not stated; assumed)':''} = ${fmtNum(m.people*(m.mins/60))} team-hours, no decision recorded${m.recurring?', recurring':''}`,
+    match:m.title
+  }));
+
+  // key-person concentration
+  const names = [...nameCounts.entries()].sort((a,b) => b[1]-a[1]);
+  const nameTotal = names.reduce((s,n) => s+n[1], 0);
+  const keyPerson = (names.length >= 3 && nameTotal > 6 && names[0][1]/nameTotal >= 0.30)
+    ? { name:names[0][0], share:names[0][1]/nameTotal, names:names.slice(0,5) } : null;
+
+  return {
+    hits, strengthHits, meetings, meetingHours, allMeetingHours, noDecisionCount:noDecision.length,
+    threads, toolsFound:[...toolsFound].sort(), keyPerson, totalLines, totalWords,
+    mkt, bld, fileCount:files.length, truncated
+  };
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê THE MODEL ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+
+function readAssumptions() {
+  const v = (id, d) => { const el = $(id); const n = parseFloat(el && el.value); return Number.isFinite(n) ? n : d; };
+  const a = {
+    team:v('a_team',9), rate:v('a_rate',58), hpw:v('a_hpw',40), wpy:v('a_wpy',46),
+    cust:v('a_cust',45), arpu:v('a_arpu',2400), margin:v('a_margin',40)/100, hpc:v('a_hpc',26),
+    period:Math.max(0.25, v('a_period',4)), coverage:clamp(v('a_coverage',100),1,100)/100,
+    meetdur:v('a_meetdur',60),
+    budget:v('a_budget',6000), cac:Math.max(1,v('a_cac',1800)), churn:clamp(v('a_churn',4),0.1,50)/100,
+    organic:Math.max(0,v('a_organic',1.2)), tau:Math.max(1,v('a_tau',9)), conv:clamp(v('a_conv',55),0,100)/100,
+    target:clamp(v('a_target',85),50,100)/100, overload:Math.max(0,v('a_overload',6)),
+    switchMonth:clamp(Math.round(v('a_switch',7)),1,24)
+  };
+  a.coef = {}; CATS.forEach(c => { a.coef[c.id] = v('coef_'+c.id, c.hrs); });
+  a.sprawlPct = v('coef_sprawl_pct', 0.4) / 100;
+  a.sprawlCap = clamp(v('coef_sprawl_cap', 5), 0, 100) / 100;
+  a.teamHoursWeek = a.team * a.hpw;
+  a.teamHoursMonth = a.teamHoursWeek * (a.wpy/12);
+  return a;
+}
+
+function computeWaste(an, a) {
+  // Raw detected team-hours over the sampled period, per category.
+  const rawHours = {};
+  CATS.forEach(c => {
+    if (c.id === 'meetings') { rawHours[c.id] = an.meetingHours; return; }
+    if (c.id === 'sprawl') {
+      const extra = Math.max(0, an.toolsFound.length - 4);
+      // A standing tax on total team hours, not a per-instance cost, so it is
+      // already a per-week figure ‚Äî scaled to the period for consistency.
+      // Capped: naming twelve systems in an inbox does not mean every person
+      // swivels between twelve, and uncapped this term swamps everything real.
+      const share = Math.min(extra * a.sprawlPct, a.sprawlCap);
+      rawHours[c.id] = share * a.teamHoursWeek * a.period;
+      return;
+    }
+    rawHours[c.id] = an.hits[c.id].length * (a.coef[c.id] || 0);
+  });
+
+  const rows = CATS.map(c => {
+    const raw = rawHours[c.id] || 0;
+    const perWeekLiteral = raw / a.period;
+    const perWeek = c.id === 'sprawl' ? perWeekLiteral : perWeekLiteral / a.coverage; // sprawl already team-wide
+    const count = c.id === 'meetings' ? an.noDecisionCount
+                : c.id === 'sprawl'   ? Math.max(0, an.toolsFound.length - 4)
+                : an.hits[c.id].length;
+    const noun = c.id === 'meetings' ? ['meeting','meetings']
+               : c.id === 'sprawl'   ? ['system past the fourth','systems past the fourth']
+               : ['instance','instances'];
+    return { cat:c, count, noun, perWeek, aiHours: perWeek * c.ai, evidence: an.hits[c.id] || [] };
+  }).filter(r => r.count > 0 || r.perWeek > 0.01);
+
+  // Cap total recoverable at a defensible share of team capacity ‚Äî no model
+  // should claim it can recover more than a third of everyone's week.
+  const CAP = 0.33;
+  let weekly = rows.reduce((s,r) => s + r.perWeek, 0);
+  const ceiling = a.teamHoursWeek * CAP;
+  const capped = weekly > ceiling;
+  const scale = capped ? ceiling / weekly : 1;
+  rows.forEach(r => { r.perWeek *= scale; r.aiHours *= scale; });
+  weekly = rows.reduce((s,r) => s + r.perWeek, 0);
+
+  const aiWeekly = rows.reduce((s,r) => s + r.aiHours, 0);
+  const annualHours = weekly * a.wpy;
+  return {
+    rows, weekly, aiWeekly, annualHours, capped,
+    annualCost: annualHours * a.rate,
+    fte: annualHours / (a.hpw * a.wpy),
+    capShare: weekly / a.teamHoursWeek,
+    aiShare: weekly > 0 ? aiWeekly / weekly : 0
+  };
+}
+
+/* 24-month monthly simulation, capacity-constrained.
+   Delivered revenue is limited by available delivery hours; churn rises in
+   proportion to how far utilisation exceeds the stated safe ceiling. */
+function simulate(a, waste, mode) {
+  const MONTHS = 24;
+  const wasteMonthly = waste.weekly * (a.wpy/12);          // recoverable hours per month
+  const out = [];
+  let cust = a.cust, cum = 0;
+
+  for (let t = 1; t <= MONTHS; t++) {
+    const marketingOn = mode === 'marketing' || (mode === 'sequenced' && t >= a.switchMonth);
+    const buildOn     = mode === 'efficiency' || (mode === 'sequenced' && t < a.switchMonth);
+
+    // Efficiency progress: exponential approach to the identified ceiling.
+    // In sequenced mode progress freezes (but is retained) once spend moves to marketing.
+    const buildMonths = mode === 'efficiency' ? t
+                      : mode === 'sequenced'  ? Math.min(t, a.switchMonth - 1)
+                      : 0;
+    const progress = buildMonths > 0 ? 1 - Math.exp(-buildMonths / a.tau) : 0;
+
+    const hoursRecovered = wasteMonthly * progress;
+    // Less rework also lowers the hours each customer consumes.
+    const hpc = a.hpc * (1 - 0.12 * progress);
+    const capacity = a.teamHoursMonth - wasteMonthly + hoursRecovered;
+
+    const required = cust * hpc;
+    const util = capacity > 0 ? required / capacity : 99;
+    const over = Math.max(0, util - a.target);
+    const churnEff = Math.min(0.6, a.churn * (1 + a.overload * over));
+
+    // Delivered revenue is capped by what the team can actually deliver.
+    const deliveredCust = Math.min(cust, capacity / hpc);
+    const revenue = deliveredCust * a.arpu;
+
+    // Freed hours carry margin too ‚Äî but only the ones NOT already absorbed by
+    // serving existing demand. Recovered hours raise `capacity`, which raises
+    // `deliveredCust` and so already show up in revenue; counting them again
+    // here would double-count. Only genuine surplus is bankable.
+    const surplus = Math.max(0, capacity - required);
+    const usableFreed = Math.min(hoursRecovered, surplus);
+    const capacityValue = usableFreed * a.conv * (a.arpu / hpc) * a.margin;
+
+    const spend = a.budget;
+    const contribution = revenue * a.margin + capacityValue - spend;
+    cum += contribution;
+
+    out.push({
+      m:t, cum, contribution, cust, util, churn:churnEff, capacity, required,
+      delivered:deliveredCust, progress, revenue
+    });
+
+    // Roll the customer base forward.
+    const acquired = (marketingOn ? a.budget / a.cac : 0)
+                   + a.organic * (1 + 0.6 * progress);   // better delivery lifts referral
+    cust = Math.max(0, cust * (1 - churnEff) + acquired);
+  }
+  return out;
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê RENDERING ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+
+const SERIES = [
+  { key:'marketing',  label:'Marketing first',            color:'var(--s1)', hex:'#4a3aa7',
+    desc:'Full budget into acquisition from month 1.' },
+  { key:'efficiency', label:'Efficiency first',           color:'var(--s2)', hex:'#C2452D',
+    desc:'Full budget into removing the detected drag.' },
+  { key:'sequenced',  label:'Sequenced: fix, then market', color:'var(--s3)', hex:'#2a78d6',
+    desc:'Efficiency work first, then acquisition.' }
+];
+
+function recompute() {
+  if (!loadedFiles.length) return;
+  const a = readAssumptions();
+  analysis = analyze(loadedFiles, a.meetdur);
+  const waste = computeWaste(analysis, a);
+  renderFindings(analysis, waste, a);
+  renderFigures(waste, a);
+  const sims = {};
+  SERIES.forEach(s => sims[s.key] = simulate(a, waste, s.key));
+  renderChart(sims, a);
+  renderVerdict(sims, a, waste);
+}
+function run() { recompute(); $('results').hidden = false; }
+
+function highlight(text, match) {
+  const t = text.length > 220 ? text.slice(0, 217) + '‚Ä¶' : text;
+  if (!match) return esc(t);
+  const i = t.toLowerCase().indexOf(String(match).toLowerCase());
+  if (i < 0) return esc(t);
+  return esc(t.slice(0,i)) + '<mark>' + esc(t.slice(i, i+match.length)) + '</mark>' + esc(t.slice(i+match.length));
+}
+
+function renderFindings(an, waste, a) {
+  const chips = [
+    `<span class="chip"><b>${an.fileCount}</b> file${an.fileCount===1?'':'s'}</span>`,
+    `<span class="chip"><b>${an.totalLines.toLocaleString('en-US')}</b> lines read</span>`,
+    `<span class="chip"><b>${an.meetings.length}</b> meeting${an.meetings.length===1?'':'s'} parsed</span>`,
+    `<span class="chip"><b>${an.toolsFound.length}</b> systems named</span>`
+  ];
+  if (an.mkt + an.bld > 8) {
+    const share = Math.round(100 * an.mkt / (an.mkt + an.bld));
+    chips.push(`<span class="chip">language split <b>${share}%</b> demand / <b>${100-share}%</b> build</span>`);
+  }
+  if (an.truncated) chips.push(`<span class="chip" style="border-color:#E6C4C4;color:var(--critical)">capped at <b>${MAX_LINES.toLocaleString('en-US')}</b> lines ‚Äî later files not read</span>`);
+  $('chips').innerHTML = chips.join('');
+  $('resTitle').textContent = `Findings ‚Äî ${waste.rows.length} pattern${waste.rows.length===1?'':'s'} detected`;
+
+  const sorted = [...waste.rows].sort((x,y) => y.perWeek - x.perWeek);
+  let html = sorted.map(r => {
+    const c = r.cat;
+    const ev = r.evidence.slice(0, 6);
+    const more = r.evidence.length - ev.length;
+    return `
+    <details class="finding">
+      <summary>
+        <span class="sev sev-${c.sev}"><span class="dot" aria-hidden="true"></span>${c.sev}</span>
+        <span class="f-title">${esc(c.label)}<span class="cnt">${r.count} ${esc(r.noun[r.count===1?0:1])}</span></span>
+        <span class="f-hrs"><b>${fmtNum(r.perWeek)}</b> h/wk<br><span style="color:var(--ink-3)">${fmtMoneyFull(r.perWeek * a.wpy * a.rate)}/yr</span></span>
+      </summary>
+      <div class="f-body">
+        <div>
+          <h4>Why it costs</h4><p>${esc(c.why)}</p>
+          <h4>What to do</h4><p>${esc(c.fix)}</p>
+          <p><span class="ai-tag">AI leverage: <b>${Math.round(c.ai*100)}%</b> of these hours ‚Äî ${esc(c.aiNote)}</span></p>
+        </div>
+        ${ev.length ? `<div><h4>Evidence from your files</h4><ul class="ev">${
+          ev.map(e => `<li><span class="loc">${esc(e.file)} ¬∑ line ${e.line}</span>${highlight(e.text, e.match)}</li>`).join('')
+        }</ul>${more > 0 ? `<p style="font-family:var(--sans);font-size:.75rem;color:var(--ink-3);margin:.6rem 0 0">+ ${more} further instance${more===1?'':'s'} not shown</p>` : ''}</div>`
+        : `<div><h4>Basis</h4><p style="font-family:var(--sans);font-size:.8125rem">${
+            c.id === 'sprawl'
+              ? 'Computed from the ' + an.toolsFound.length + ' distinct systems named across your files: ' + esc(an.toolsFound.join(', ')) + '. Cost is modelled as a context-switching share of total team hours for each system beyond the fourth.'
+              : 'Derived from structural parsing rather than keyword matches.'
+          }</p></div>`}
+      </div>
+    </details>`;
+  }).join('');
+
+  if (an.keyPerson) {
+    html += `
+    <details class="finding">
+      <summary>
+        <span class="sev sev-serious"><span class="dot" aria-hidden="true"></span>serious</span>
+        <span class="f-title">Key-person concentration<span class="cnt">${esc(an.keyPerson.name)} ‚Äî ${Math.round(an.keyPerson.share*100)}% of operational mentions</span></span>
+        <span class="f-hrs"><b>risk</b><br><span style="color:var(--ink-3)">not costed</span></span>
+      </summary>
+      <div class="f-body"><div>
+        <h4>Why it costs</h4>
+        <p>One name dominates approvals, attendance, and "waiting on" statements in these files. That concentration is a hard ceiling on throughput ‚Äî nothing moves faster than this person's inbox ‚Äî and it is a single point of failure for a holiday, an illness, or a resignation. It is also the most common reason documented process never gets written: the knowledge holder is too busy being the bottleneck.</p>
+        <h4>What to do</h4>
+        <p>Separate the two roles this person is playing. Decisions that only need a rule get a written threshold; decisions that need judgement get a named deputy. Neither requires them to work faster, which is the only fix that would not have worked.</p>
+        <h4>Names by operational frequency</h4>
+        <ul class="ev">${an.keyPerson.names.map(n => `<li>${esc(n[0])} ‚Äî ${n[1]} weighted mention${n[1]===1?'':'s'}</li>`).join('')}</ul>
+      </div></div>
+    </details>`;
+  }
+
+  $('findings').innerHTML = html || `<p class="empty">No drag patterns matched. Either the files are unusually clean, or they do not contain operational communication ‚Äî try meeting notes or an inbox export.</p>`;
+
+  // strengths
+  const sHits = STRENGTHS.map(s => ({ s, hits: an.strengthHits[s.id] })).filter(x => x.hits.length > 0)
+    .sort((x,y) => y.hits.length - x.hits.length);
+  const totalMeetHrs = an.allMeetingHours;
+  let sHtml = `<h3 style="font-size:1.15rem;margin:2.25rem 0 .9rem">What's already working</h3>`;
+  if (!sHits.length) {
+    sHtml += `<p class="empty">No documented process, automation, ownership markers, or measurement language appeared in these files. That is itself the finding ‚Äî and it is the cheapest thing on this page to change.</p>`;
+  } else {
+    sHtml += sHits.map(({s, hits}) => `
+    <details class="finding">
+      <summary>
+        <span class="sev sev-strength"><span class="dot" aria-hidden="true"></span>credit</span>
+        <span class="f-title">${esc(s.label)}<span class="cnt">${hits.length} mention${hits.length===1?'':'s'}</span></span>
+        <span class="f-hrs" style="color:var(--good-ink)"><b>keep</b></span>
+      </summary>
+      <div class="f-body"><div>
+        <h4>Why this matters</h4><p>${esc(s.why)}</p>
+        <h4>Evidence</h4>
+        <ul class="ev">${hits.slice(0,4).map(e => `<li><span class="loc">${esc(e.file)} ¬∑ line ${e.line}</span>${highlight(e.text, e.match)}</li>`).join('')}</ul>
+      </div></div>
+    </details>`).join('');
+  }
+  if (an.meetings.length) {
+    const withDec = an.meetings.length - an.noDecisionCount;
+    sHtml += `<p style="font-family:var(--sans);font-size:.8125rem;color:var(--ink-2);margin-top:1rem">
+      Meeting ledger: <b>${fmtNum(totalMeetHrs)}</b> team-hours parsed across ${an.meetings.length} meeting${an.meetings.length===1?'':'s'} ‚Äî
+      <b>${withDec}</b> produced a recorded decision, <b>${an.noDecisionCount}</b> did not.
+      ${withDec ? 'The ones that did are the template; hold the rest to the same bar.' : 'None recorded a decision, an owner, or a next step.'}
+    </p>`;
+  }
+  $('strengths').innerHTML = sHtml;
+}
+
+function renderFigures(waste, a) {
+  $('heroVal').textContent = fmtMoneyFull(waste.annualCost);
+  $('heroSub').textContent = `${fmtNum(waste.weekly)} team-hours a week √ó ${a.wpy} working weeks √ó $${a.rate}/hr fully loaded.`
+    + (waste.capped ? ' Capped at 33% of team capacity ‚Äî the raw detection exceeded what any model should claim is recoverable.' : '')
+    + (a.coverage >= 1
+        ? ` Counts only what appears in the files provided, over a ${a.period}-week period ‚Äî no extrapolation.`
+        : ` Extrapolated from a ${a.period}-week sample treated as ${Math.round(a.coverage*100)}% of the team's communication, so this figure is an estimate of the whole, not a count.`);
+  $('tHrs').textContent = fmtNum(waste.weekly, 0);
+  $('tHrsN').textContent = `of ${(a.teamHoursWeek).toLocaleString('en-US')} available team-hours`;
+  $('tFte').textContent = fmtNum(waste.fte, 2);
+  $('tCap').textContent = Math.round(waste.capShare*100) + '%';
+  $('tAi').textContent = Math.round(waste.aiShare*100) + '%';
+}
+
+/* ‚îÄ‚îÄ chart ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+let chartState = null;
+
+function renderChart(sims, a) {
+  const W = 880, H = 380, P = { t:22, r:132, b:46, l:74 };
+  const iw = W - P.l - P.r, ih = H - P.t - P.b;
+  const months = sims.marketing.length;
+
+  const all = SERIES.flatMap(s => sims[s.key].map(d => d.cum));
+  let lo = Math.min(0, ...all), hi = Math.max(...all);
+  const pad = (hi - lo) * 0.08 || 1; hi += pad; if (lo < 0) lo -= pad;
+  const niceStep = (range) => {
+    const raw = range / 5, mag = Math.pow(10, Math.floor(Math.log10(Math.abs(raw) || 1)));
+    return [1,2,2.5,5,10].map(m => m*mag).find(s => s >= raw) || mag*10;
+  };
+  const step = niceStep(hi - lo);
+  const yLo = Math.floor(lo/step)*step;
+  // Guard the degenerate case (every path identical, e.g. zero budget and zero
+  // detected waste): yHi === yLo would make every y() coordinate NaN.
+  const yHi = Math.max(Math.ceil(hi/step)*step, yLo + step);
+  const x = (m) => P.l + ((m-1)/(months-1)) * iw;
+  const y = (v) => P.t + ih - ((v - yLo)/(yHi - yLo)) * ih;
+
+  const ticks = []; for (let v = yLo; v <= yHi + 1e-6; v += step) ticks.push(v);
+  const xt = [1,4,8,12,16,20,24].filter(m => m <= months);
+
+  let svg = '';
+  // gridlines (solid hairlines, recessive)
+  ticks.forEach(v => { svg += `<line class="gridline" x1="${P.l}" y1="${y(v).toFixed(1)}" x2="${P.l+iw}" y2="${y(v).toFixed(1)}"/>`; });
+  if (yLo < 0 && yHi > 0) svg += `<line class="zeroline" x1="${P.l}" y1="${y(0).toFixed(1)}" x2="${P.l+iw}" y2="${y(0).toFixed(1)}"/>`;
+  svg += `<line class="axisline" x1="${P.l}" y1="${P.t+ih}" x2="${P.l+iw}" y2="${P.t+ih}"/>`;
+  ticks.forEach(v => { svg += `<text class="tick" x="${P.l-10}" y="${(y(v)+4).toFixed(1)}" text-anchor="end">${fmtMoney(v)}</text>`; });
+  xt.forEach(m => { svg += `<text class="tick" x="${x(m).toFixed(1)}" y="${P.t+ih+20}" text-anchor="middle">${m}</text>`; });
+  svg += `<text class="axtitle" x="${(P.l+iw/2).toFixed(1)}" y="${P.t+ih+40}" text-anchor="middle">Month</text>`;
+  svg += `<text class="axtitle" x="${P.l-10}" y="${P.t-8}" text-anchor="end">Cumulative $</text>`;
+
+  // lines (2px, round join/cap)
+  SERIES.forEach(s => {
+    const d = sims[s.key].map((pt,i) => `${i?'L':'M'}${x(pt.m).toFixed(1)} ${y(pt.cum).toFixed(1)}`).join(' ');
+    svg += `<path d="${d}" fill="none" stroke="${s.hex}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  });
+
+  // end markers (>=8px, 2px surface ring) + direct end labels with leader lines on collision
+  const ends = SERIES.map(s => {
+    const last = sims[s.key][months-1];
+    return { s, vy: y(last.cum), val: last.cum };
+  }).sort((p,q) => p.vy - q.vy);
+  // Each end label is two lines (value + series name), so the gap has to clear
+  // both ‚Äî 15 collides the name line into the next value. Push down to
+  // separate, then shift the whole stack up if it would overflow the plot.
+  const MINGAP = 30;
+  ends.forEach((e,i) => { e.ly = e.vy; if (i > 0 && e.ly - ends[i-1].ly < MINGAP) e.ly = ends[i-1].ly + MINGAP; });
+  const overflow = (ends.length ? ends[ends.length-1].ly + 17 : 0) - (P.t + ih);
+  if (overflow > 0) ends.forEach(e => { e.ly -= overflow; });
+  ends.forEach(e => {
+    const px = x(months), lx = P.l + iw + 14;
+    svg += `<circle cx="${px.toFixed(1)}" cy="${e.vy.toFixed(1)}" r="4.5" fill="${e.s.hex}" stroke="var(--paper)" stroke-width="2"/>`;
+    if (Math.abs(e.ly - e.vy) > 1.5) svg += `<path class="leader" d="M${(px+6).toFixed(1)} ${e.vy.toFixed(1)} L${(lx-4).toFixed(1)} ${e.ly.toFixed(1)}" fill="none"/>`;
+    svg += `<text class="endlbl" x="${lx.toFixed(1)}" y="${(e.ly+4).toFixed(1)}">${fmtMoney(e.val)}</text>`;
+    svg += `<text class="tick" x="${lx.toFixed(1)}" y="${(e.ly+17).toFixed(1)}">${esc(e.s.label.split(':')[0])}</text>`;
+  });
+
+  // crosshair + hit layer
+  svg += `<g id="xh" style="display:none"><line class="xhair" x1="0" y1="${P.t}" x2="0" y2="${P.t+ih}"/></g>`;
+  svg += `<g id="xdots"></g>`;
+  svg += `<rect id="hit" x="${P.l}" y="${P.t}" width="${iw}" height="${ih}" fill="transparent" style="cursor:crosshair"/>`;
+
+  $('chart').innerHTML = svg;
+  $('legend').innerHTML = SERIES.map(s =>
+    `<span class="lk"><i style="background:${s.hex}"></i>${esc(s.label)} ‚Äî <span style="color:var(--ink-3)">${esc(s.desc)}</span></span>`
+  ).join('');
+  $('chartSub').textContent = `All three spend ${fmtMoneyFull(a.budget)}/mo. Delivered revenue is capped by available delivery hours; churn rises when utilisation passes ${Math.round(a.target*100)}%.`;
+
+  chartState = { sims, a, months, x, y, P, iw, ih };
+  wireHover();
+  renderTableView(sims, a);
+}
+
+function wireHover() {
+  const svg = $('chart'), hit = svg.querySelector('#hit'), xh = svg.querySelector('#xh'),
+        dots = svg.querySelector('#xdots'), tip = $('tip'), scroll = $('chartScroll');
+  if (!hit) return;
+  const st = chartState;
+  let idx = -1;
+
+  const show = (i) => {
+    idx = clamp(i, 0, st.months-1);
+    const m = idx + 1, px = st.x(m);
+    xh.style.display = ''; xh.firstChild.setAttribute('x1', px); xh.firstChild.setAttribute('x2', px);
+    dots.innerHTML = SERIES.map(s => {
+      const d = st.sims[s.key][idx];
+      return `<circle cx="${px.toFixed(1)}" cy="${st.y(d.cum).toFixed(1)}" r="4.5" fill="${s.hex}" stroke="var(--paper)" stroke-width="2"/>`;
+    }).join('');
+    const rows = SERIES.map(s => {
+      const d = st.sims[s.key][idx];
+      return `<span class="r"><span><i style="background:${s.hex}"></i>${esc(s.label.split(':')[0])}</span><span>${fmtMoneyFull(d.cum)}</span></span>`;
+    }).join('');
+    const u = st.sims.marketing[idx].util, u2 = st.sims.efficiency[idx].util;
+    tip.innerHTML = `<span class="m">Month ${m} ‚Äî cumulative</span>${rows}
+      <span class="r" style="margin-top:.35rem;padding-top:.35rem;border-top:1px solid rgba(250,248,243,.25);color:#D8D4C8">
+      <span>utilisation</span><span>${Math.round(u*100)}% / ${Math.round(u2*100)}%</span></span>`;
+    tip.classList.add('on');
+    const rect = svg.getBoundingClientRect(), sc = rect.width / 880;
+    let left = px * sc + 16;
+    if (left + 190 > rect.width) left = px * sc - 190;
+    tip.style.left = Math.max(4, left) + 'px';
+    tip.style.top  = (st.P.t * sc + 8) + 'px';
+  };
+  const hide = () => { xh.style.display = 'none'; dots.innerHTML = ''; tip.classList.remove('on'); };
+
+  const fromEvent = (e) => {
+    const rect = svg.getBoundingClientRect();
+    const vx = ((e.clientX - rect.left) / rect.width) * 880;
+    const frac = (vx - st.P.l) / st.iw;
+    return Math.round(frac * (st.months - 1));
+  };
+  hit.addEventListener('mousemove', e => show(fromEvent(e)));
+  hit.addEventListener('mouseleave', hide);
+  hit.addEventListener('touchstart', e => { show(fromEvent(e.touches[0])); }, {passive:true});
+  hit.addEventListener('touchmove',  e => { show(fromEvent(e.touches[0])); }, {passive:true});
+  svg.addEventListener('focus', () => show(idx < 0 ? st.months-1 : idx));
+  svg.addEventListener('blur', hide);
+  svg.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { show(idx+1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft') { show(idx-1); e.preventDefault(); }
+    else if (e.key === 'Home') { show(0); e.preventDefault(); }
+    else if (e.key === 'End') { show(st.months-1); e.preventDefault(); }
+    else if (e.key === 'Escape') hide();
+  });
+}
+
+function renderTableView(sims, a) {
+  const rows = sims.marketing.map((_, i) => {
+    const m = i+1;
+    return `<tr><td>${m}</td>${SERIES.map(s => `<td>${fmtMoneyFull(sims[s.key][i].cum)}</td>`).join('')}
+      <td>${Math.round(sims.marketing[i].util*100)}%</td><td>${Math.round(sims.efficiency[i].util*100)}%</td></tr>`;
+  }).join('');
+  $('tvWrap').innerHTML = `<table class="tv">
+    <caption>Cumulative contribution margin, net of budget spent. Utilisation columns show why the paths diverge.</caption>
+    <thead><tr><th scope="col">Month</th>
+      ${SERIES.map(s => `<th scope="col"><span class="swatch" style="background:${s.hex}"></span>${esc(s.label)}</th>`).join('')}
+      <th scope="col">Util. mkt</th><th scope="col">Util. eff</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+}
+
+function renderVerdict(sims, a, waste) {
+  const last = (k) => sims[k][sims[k].length-1].cum;
+  const scores = SERIES.map(s => ({ s, v:last(s.key) })).sort((p,q) => q.v - p.v);
+  const win = scores[0], lose = scores[scores.length-1];
+  const gap = win.v - lose.v;
+
+  // Where does the marketing-first path hit the wall?
+  const mkt = sims.marketing;
+  const breach = mkt.findIndex(d => d.util > a.target);
+  const peakUtil = Math.max(...mkt.map(d => d.util));
+  const peakChurn = Math.max(...mkt.map(d => d.churn));
+
+  const rank = scores.map((r,i) => `${i+1}. ${r.s.label} <b>${fmtMoneyFull(r.v)}</b>`).join(' &nbsp;¬∑&nbsp; ');
+  let v1 = `At month 24: ${rank}. <b>${esc(win.s.label)}</b> wins by <b>${fmtMoneyFull(gap)}</b> over the weakest path.`;
+
+  // The decision actually on the table is sequenced vs. marketing-first, so
+  // name that comparison explicitly rather than leaving it to be inferred.
+  if (win.s.key !== 'marketing') {
+    const d = win.v - last('marketing');
+    v1 += d > 0
+      ? ` Against spending the same money on acquisition from month one, that is <b>${fmtMoneyFull(d)}</b> of difference.`
+      : ` Marketing-first is within ${fmtMoneyFull(-d)} of it, so treat the two as a tie on these inputs.`;
+  }
+
+  if (breach >= 0) {
+    v1 += ` The mechanism is capacity, not preference: the marketing-first path passes the ${Math.round(a.target*100)}% utilisation ceiling in <b>month ${breach+1}</b>, peaks at <b>${Math.round(peakUtil*100)}%</b>, and drags monthly churn from ${(a.churn*100).toFixed(1)}% to <b>${(peakChurn*100).toFixed(1)}%</b>. Past that line you are paying ${fmtMoneyFull(a.cac)} to acquire customers the team cannot serve well ‚Äî so you buy churn at full price.`;
+  } else {
+    v1 += ` And note what the model is telling you: utilisation never passes the ${Math.round(a.target*100)}% ceiling on any path, peaking at <b>${Math.round(peakUtil*100)}%</b>. <b>You have genuine slack.</b> That is the case where my whole thesis inverts ‚Äî idle paid-for capacity is the cheapest growth you will ever get, and efficiency work should wait.`;
+  }
+
+  let v2 = '';
+  if (win.s.key === 'sequenced') {
+    v2 = `This is the answer I gave most often, and it is not a compromise ‚Äî it is an ordering. Removing ${fmtNum(waste.weekly)} hours a week first raises the ceiling on what the team can deliver; spending on acquisition afterwards fills a system that can absorb it. Same money, same 24 months, ${fmtMoneyFull(last('sequenced') - last('marketing'))} of difference from sequence alone.`;
+    if (breach >= 0 && Math.abs(last('sequenced') - last('marketing')) < 0.12 * Math.abs(last('marketing'))) {
+      v2 += ` And read the margin honestly: on money alone the two paths are close. The difference the chart cannot draw is what marketing-first <em>spends to get there</em> ‚Äî ${Math.round(peakUtil*100)}% peak utilisation and ${(peakChurn*100).toFixed(1)}% churn means roughly the same cash extracted by running the team past its limit and losing customers you already paid to acquire. Two routes to a similar number, one of which costs you the team and the reputation. That asymmetry never shows up in a spreadsheet, which is exactly why the intuitive choice keeps winning arguments it should lose.`;
+    }
+  } else if (win.s.key === 'efficiency') {
+    v2 = `Note that efficiency-first wins here <em>without acquiring anybody</em> ‚Äî it grows only by referral. That is a strong signal the constraint is entirely internal. Test raising the acquisition budget or bringing the sequenced switch forward from month ${a.switchMonth}; if marketing still loses, the delivery system is the whole problem.`;
+  } else {
+    v2 = `Marketing-first winning is a real result, not a modelling failure ‚Äî and worth taking seriously before you spend anything on process work. Check whether it survives honest inputs: is ${fmtMoneyFull(a.cac)} really your blended CAC including the deals that didn't close, and does ${(a.churn*100).toFixed(1)}% monthly churn hold once delivery is under load?`;
+  }
+  if (waste.capped) {
+    v2 += ` One caution: raw detection exceeded a third of total team capacity, so recoverable hours were capped there. Either the sample is unusually concentrated or coverage is set too low.`;
+  }
+  $('verdict').innerHTML = v1;
+  $('verdict2').innerHTML = v2;
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê WORKED EXAMPLE ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* Fictional. A nine-person residential design-build studio, four weeks of material. */
+
+const SAMPLE = [
+{ name:'meridian-inbox-export.txt', text:
+`Subject: Re: Re: Re: Re: Hartley kitchen - cabinet spec sign-off
+From: Dani Okonkwo
+Date: 2026-03-02 08:14
+Marc, still waiting on your approval for the Hartley cabinet spec. This is the fourth request.
+As I mentioned last week the fabricator needs it by Friday or we lose the March slot.
+Only Marc can approve anything over 5k so we are blocked until he is back from the site visit.
+I have re-entered the line items into the Buildertrend budget by hand again because the Google Sheets
+version and the Buildertrend version did not match.
+
+Subject: Re: Re: Re: Hartley kitchen - cabinet spec sign-off
+From: Marc Vasquez
+Date: 2026-03-02 21:40
+Sorry - buried. Which version is current, the one in Dropbox or the one you emailed?
+I think I signed off on v3 but Priya sent a v4 after the client call.
+
+Subject: Re: Re: Re: Re: Re: Hartley kitchen - cabinet spec sign-off
+From: Priya Raman
+Date: 2026-03-03 07:02
+v4 is current. v3 had the wrong drawing for the island. Had to redo the elevations, that is the
+third revision on that one sheet. Resending now.
+
+Subject: Weekly invoicing - status
+From: Sofia Bianchi
+Date: 2026-03-03 16:30
+Every Friday I export the timesheets from Toggl, copy and paste them into the QuickBooks template,
+cross-check by hand against the Buildertrend job codes, and chase whoever has not logged hours.
+This week that was five people. It took most of the afternoon again.
+
+Subject: Re: Re: Re: Permit resubmission - Calloway
+From: Tomas Weber
+Date: 2026-03-04 09:11
+Any update on this? Second reminder. The city portal shows it as pending review since Feb 12.
+I have not heard back from Lena and she is the only one who knows the portal login.
+
+Subject: Re: Re: Site photos for the Calloway punch list
+From: Lena Fitzgerald
+Date: 2026-03-04 18:22
+Sorry, gentle nudge back at you - I am waiting for Marc to confirm the scope change before I
+resubmit. Photos are in Dropbox, the punch list is in Asana, and the client comments are in
+the WhatsApp thread. I will stitch them together into one doc manually tonight.
+
+Subject: Re: Re: Re: Re: Re: Re: Bathroom tile - which SKU did we quote
+From: Dani Okonkwo
+Date: 2026-03-05 11:47
+To reiterate: we quoted the 4x12 in matte. The invoice from the supplier shows gloss.
+Someone re-keyed the SKU wrong when it moved from the spreadsheet into the PO.
+We eat the difference or we redo it. This is the second time this month.
+
+Subject: Marketing retainer - proposal
+From: Marc Vasquez
+Date: 2026-03-06 10:05
+The agency is proposing 6k a month for paid social and lead gen. They are projecting a CAC
+around 1800 and say we could add three or four projects a month. Thoughts before I sign?
+
+Subject: Re: Marketing retainer - proposal
+From: Priya Raman
+Date: 2026-03-06 12:18
+Honest answer - we cannot deliver three or four more projects a month right now. Everyone is
+fully booked and we are already late on Calloway and Hartley. I would rather spend it on
+fixing how a spec gets from the client call into the fabricator's hands without four rounds.
+
+Subject: New client onboarding - process
+From: Ben Achebe
+Date: 2026-03-09 08:55
+Owner: Ben. I wrote up an SOP for the intake call and put the checklist in Notion. Decision:
+every new project starts with the same brief template so we stop guessing at scope.
+Next step: Priya reviews by Friday.
+
+Subject: Re: Re: Re: Insurance certificate renewal
+From: Sofia Bianchi
+Date: 2026-03-10 14:02
+Bumping this. Third request. I need Marc to sign. Every month I manually re-enter the
+subcontractor certificates into the tracker because nothing talks to anything.
+
+Subject: Re: Re: Re: Re: Client change orders - Ferris
+From: Tomas Weber
+Date: 2026-03-11 16:44
+As discussed previously, we need one place for change orders. Right now they arrive by email,
+WhatsApp, and sometimes verbally on site. I rebuilt the Ferris budget from scratch because
+the version in Excel did not match what was approved.
+
+Subject: Automated weekly report
+From: Ben Achebe
+Date: 2026-03-12 09:20
+Set up a Zapier automation so the Asana task completions auto-sync into the dashboard.
+Nobody has to update the spreadsheet manually now. Baseline cycle time is 14 days.
+
+Subject: Re: Re: Re: Re: Re: Scheduling the Okafor walkthrough
+From: Lena Fitzgerald
+Date: 2026-03-13 11:30
+Still waiting on availability from three people. Any update? This is the fifth email on this
+thread and we have not landed a time. Calendly link is in my signature.
+
+Subject: Re: Re: Fabricator lead times
+From: Dani Okonkwo
+Date: 2026-03-16 08:10
+Following up again. I chase the fabricator every Monday morning for status because they never
+send updates. I copy their reply into the Buildertrend log by hand.
+` },
+
+{ name:'meridian-meeting-notes.md', text:
+`# Weekly Production Sync - 2026-03-02
+Attendees: Marc, Dani, Priya, Tomas, Lena, Ben, Sofia
+Duration: 90 min
+Recurring, every Monday.
+- Walked through every active job status one by one
+- Discussed the Hartley cabinet delay at length
+- Marc will look into the fabricator situation
+- Priya raised the spec revision problem again
+- Ran over, will pick up the rest next week
+
+# Weekly Production Sync - 2026-03-09
+Attendees: Marc, Dani, Priya, Tomas, Lena, Ben, Sofia
+Duration: 90 min
+Recurring, every Monday.
+- Same round-robin status update as last week
+- Hartley cabinet still unresolved, Marc to follow up
+- Discussed whether to move to a different fabricator, no conclusion
+- Tomas raised the change order problem, agreed it is a problem
+- Sofia noted invoicing takes a full afternoon, discussed briefly
+
+# Client Check-in Prep - 2026-03-10
+Attendees: Marc, Priya, Lena
+Duration: 45 min
+Standing meeting before every client call.
+- Reviewed talking points
+- Priya to pull the latest drawings
+- Did not decide who owns the follow-up email
+
+# Design Review - Hartley - 2026-03-11
+Attendees: Priya, Dani, Marc, Tomas
+Duration: 60 min
+Decision: proceed with v4 elevations, matte tile as originally quoted.
+Owner: Priya for the drawing set, Dani for the fabricator handoff.
+Due by 2026-03-14. Next step: Dani confirms the March slot is still held.
+
+# Weekly Production Sync - 2026-03-16
+Attendees: Marc, Dani, Priya, Tomas, Lena, Ben, Sofia
+Duration: 90 min
+Recurring, every Monday.
+- Status round-robin again
+- Marketing retainer discussed, no decision
+- Everyone agreed we are at capacity
+- Utilization feels like it is over 90 percent, nobody is sure
+
+# Ops Retro - 2026-03-17
+Attendees: Ben, Sofia, Priya
+Duration: 60 min
+Decision: adopt the Notion intake SOP for all new projects starting April.
+Owner: Ben. Next step: Sofia documents the invoicing process as a runbook so it is not
+all in her head. Baseline: invoicing currently takes 4 hours per week.
+Action items: Ben to write the onboarding checklist, Priya to review the brief template.
+
+# Subcontractor Coordination - 2026-03-18
+Attendees: Tomas, Lena, Dani, Marc, Ben
+Duration: 60 min
+Weekly, recurring.
+- Went through subcontractor schedules
+- Discussed the permit delay
+- Lena still waiting for Marc on the Calloway scope change
+- No decision recorded on the change order process
+` },
+
+{ name:'meridian-ops-log.csv', text:
+`date,job,issue,system,notes
+2026-03-02,Hartley,spec approval delay,Buildertrend,waiting on approval from Marc - blocked 6 days
+2026-03-03,internal,timesheet reconciliation,QuickBooks,manually re-entered from Toggl export again
+2026-03-04,Calloway,permit pending review,city portal,only Lena has the login - key person risk
+2026-03-05,Ferris,wrong SKU on PO,Google Sheets,re-keyed by hand from spreadsheet - had to redo order
+2026-03-06,Hartley,elevation redo v4,Dropbox,third revision on one sheet - rework
+2026-03-09,internal,new intake SOP written,Notion,documented process - checklist created
+2026-03-10,Okafor,scheduling ping-pong,Calendly,five emails and no time booked
+2026-03-11,internal,change orders arriving three ways,WhatsApp,email plus WhatsApp plus verbal on site
+2026-03-12,internal,dashboard automation live,Zapier,automated sync from Asana - no manual update
+2026-03-13,Calloway,scope change unconfirmed,Asana,waiting for Marc - second reminder sent
+2026-03-16,internal,invoicing afternoon,Toggl,copy and paste export - chase five people for hours
+2026-03-17,internal,runbook started,Notion,Sofia documenting invoicing process - owner assigned
+2026-03-18,Ferris,budget rebuilt from scratch,Excel,version did not match approved - rework
+2026-03-19,internal,fabricator status chase,Buildertrend,chase every Monday manually - no auto updates
+` }
+];
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê WIRING ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+
+// coefficient fields, generated from CATS so the model and the UI can't drift
+$('coefFields').innerHTML = CATS.filter(c => c.hrs > 0).map(c => `
+  <div class="f"><label for="coef_${c.id}">${esc(c.label)}</label>
+  <input type="number" id="coef_${c.id}" value="${c.hrs}" min="0" max="40" step="0.05"><span class="unit">h</span></div>
+`).join('') + `
+  <div class="f"><label for="coef_sprawl_pct">Context-switch cost per system past the 4th</label>
+  <input type="number" id="coef_sprawl_pct" value="0.4" min="0" max="20" step="0.1"><span class="unit">% of hrs</span></div>
+  <div class="f"><label for="coef_sprawl_cap">Ceiling on total context-switch cost</label>
+  <input type="number" id="coef_sprawl_cap" value="5" min="0" max="100" step="0.5"><span class="unit">% of hrs</span></div>`;
+
+const drop = $('drop');
+['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {
+  e.preventDefault(); drop.classList.add('over');
+}));
+['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {
+  e.preventDefault(); if (ev === 'dragleave' && drop.contains(e.relatedTarget)) return;
+  drop.classList.remove('over');
+}));
+drop.addEventListener('drop', e => { if (e.dataTransfer && e.dataTransfer.files.length) readFiles(e.dataTransfer.files); });
+$('pick').addEventListener('click', () => $('file').click());
+$('file').addEventListener('change', e => { if (e.target.files.length) readFiles(e.target.files); });
+
+$('sample').addEventListener('click', () => {
+  loadedFiles = SAMPLE.map(f => ({ name:f.name, text:f.text }));
+  renderFileList(SAMPLE.map(f => ({ name:f.name, ok:true })));
+  // The sample is an EXCERPT ‚Äî three short files spanning three weeks of a
+  // nine-person firm ‚Äî so it must declare its own partiality rather than
+  // inherit the 100% default, which would be a false claim about it.
+  $('a_period').value = 3;
+  $('a_coverage').value = 50;
+  run();
+  setStatus('Running on <b>fictional sample data</b> ‚Äî an invented nine-person design-build studio. These three files are an excerpt spanning three weeks, so coverage is set to 50%: the figures estimate the whole firm rather than counting only these files. Drop your own files or paste your text to audit your business.');
+  $('results').scrollIntoView({ behavior:'smooth', block:'start' });
+});
+
+// Paste path ‚Äî the answer for .docx/.pdf/Google Docs, which cannot be parsed
+// here without an external library that the CSP (correctly) forbids.
+$('pasteRun').addEventListener('click', () => {
+  const text = $('pasteArea').value;
+  if (!text.trim()) { setStatus('Nothing pasted yet ‚Äî paste some text into the box first.', true); return; }
+  loadedFiles = [{ name:'pasted-text', text }];
+  renderFileList([{ name:'pasted-text', ok:true }]);
+  $('a_period').value = 4;
+  $('a_coverage').value = 100;
+  setStatus('Analysing‚Ä¶');
+  requestAnimationFrame(() => setTimeout(() => {
+    run();
+    setStatus(`Analysed <b>${(analysis ? analysis.totalLines : 0).toLocaleString('en-US')}</b> lines of pasted text. Nothing was uploaded or stored.`);
+    $('results').scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 0));
+});
+$('pasteClear').addEventListener('click', () => { $('pasteArea').value = ''; setStatus(''); });
+
+// live recompute on any assumption change
+document.addEventListener('input', e => {
+  if (e.target.matches('.assume-body input')) recompute();
+});
+
+$('tvToggle').addEventListener('click', () => {
+  const w = $('tvWrap'), btn = $('tvToggle'), open = !w.hidden;
+  w.hidden = open; btn.setAttribute('aria-expanded', String(!open));
+  btn.textContent = open ? 'Show table view' : 'Hide table view';
+});
+$('printBtn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>

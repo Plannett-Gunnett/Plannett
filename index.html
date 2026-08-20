@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+<!-- ─────────────────────────────────────────────────────────────────────────
      Content Security Policy. This is what turns "your files never leave this
      page" from a promise into an enforced property of the document:
-       connect-src 'none'  ‚Äî blocks fetch, XHR, WebSocket and sendBeacon, so no
+       connect-src 'none'  — blocks fetch, XHR, WebSocket and sendBeacon, so no
                              script on this page can transmit anything, anywhere
-       script-src 'unsafe-inline' with no host sources ‚Äî inline script (this
+       script-src 'unsafe-inline' with no host sources — inline script (this
                              file's own) runs; any EXTERNAL script, including one
                              injected by a hosting platform, is blocked outright
-       form-action 'none'  ‚Äî nothing can be submitted
+       form-action 'none'  — nothing can be submitted
      Keep this tag FIRST in <head> so it governs everything parsed after it.
      If you host somewhere that injects analytics, the injected tag will be
      blocked rather than silently breaking the privacy claim made below.
@@ -18,7 +18,7 @@
      Verified in-browser: fetch, XMLHttpRequest, sendBeacon and WebSocket are
      all refused with "violates ... connect-src 'none'", and an external
      <script src> is refused by script-src. Note that sendBeacon returns true
-     even when blocked ‚Äî it queues, then the send is refused, so its return
+     even when blocked — it queues, then the send is refused, so its return
      value is not evidence either way.
 
      'frame-ancestors' is deliberately absent: browsers ignore it in a <meta>
@@ -26,26 +26,26 @@
      response header at the host (frame-ancestors, or X-Frame-Options).
      Serving this whole policy as a header is stronger than the meta tag and
      is worth doing if your host allows it.
-     ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+     ───────────────────────────────────────────────────────────────────────── -->
 <meta http-equiv="Content-Security-Policy"
       content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Drag You Can't See ‚Äî a free operating-efficiency audit for small businesses</title>
-<meta name="description" content="A free tool that reads your meeting notes and inbox exports, flags where a small business loses capacity, and prices the fix. Runs entirely in your browser ‚Äî nothing is uploaded.">
-<meta name="author" content="Siera Gunnett ‚Äî Plannett Gunnett">
+<title>The Drag You Can't See — a free operating-efficiency audit for small businesses</title>
+<meta name="description" content="A free tool that reads your meeting notes and inbox exports, flags where a small business loses capacity, and prices the fix. Runs entirely in your browser — nothing is uploaded.">
+<meta name="author" content="Siera Gunnett — Plannett Gunnett">
 <meta name="robots" content="index, follow">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Drag You Can't See ‚Äî a free efficiency audit for small businesses">
-<meta property="og:description" content="Drop in meeting notes or an inbox export. It flags where capacity is leaking, credits what already works, and prices the fix. Everything runs in your browser ‚Äî no upload, no account, no cost.">
+<meta property="og:title" content="The Drag You Can't See — a free efficiency audit for small businesses">
+<meta property="og:description" content="Drop in meeting notes or an inbox export. It flags where capacity is leaking, credits what already works, and prices the fix. Everything runs in your browser — no upload, no account, no cost.">
 <style>
-/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
-   PLANNETT GUNNETT‚Ñ¢ ‚Äî editorial cream + ink, single accent.
+/* ─────────────────────────────────────────────────────────────────────────────
+   PLANNETT GUNNETT™ — editorial cream + ink, single accent.
    Committed single look (cream paper); color-scheme pinned so no forced invert.
    Palette validated against the data-viz six checks on surface #FAF8F3:
-     slot 1 violet #4a3aa7 ¬∑ slot 2 rust #C2452D ¬∑ slot 3 blue #2a78d6
-     all-pairs CVD ŒîE 13.0 (deutan) ¬∑ normal-vision ŒîE 16.3 ¬∑ all ‚â•3:1 contrast
-   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+     slot 1 violet #4a3aa7 · slot 2 rust #C2452D · slot 3 blue #2a78d6
+     all-pairs CVD ΔE 13.0 (deutan) · normal-vision ΔE 16.3 · all ≥3:1 contrast
+   ───────────────────────────────────────────────────────────────────────────── */
 :root{
   color-scheme: light;
   --cream:#FAF8F3;
@@ -53,7 +53,7 @@
   --ink:#14130F;          /* 17.5:1 */
   --ink-2:#4A4740;        /*  8.7:1 */
   --ink-3:#6E6A60;        /*  5.1:1 */
-  --ink-4:#868175;        /*  3.7:1 ‚Äî large text / non-text only */
+  --ink-4:#868175;        /*  3.7:1 — large text / non-text only */
   --rule:#E1DED4;
   --rule-2:#CFCabc;
   --accent:#C2452D;       /*  4.7:1 */
@@ -96,7 +96,7 @@ hr{border:0; border-top:1px solid var(--rule); margin:0}
 }
 .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ‚îÄ‚îÄ masthead ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── masthead ─────────────────────────────────────────────────────────────── */
 .masthead{border-bottom:1px solid var(--ink); padding:1.1rem 0 .9rem; margin-bottom:clamp(2.5rem,6vw,4.5rem)}
 .masthead .wrap{display:flex; flex-wrap:wrap; gap:1rem 1.5rem; align-items:baseline; justify-content:space-between}
 .wordmark{font-family:var(--sans); font-weight:700; font-size:.9375rem; letter-spacing:.1em; text-transform:uppercase}
@@ -109,14 +109,14 @@ hr{border:0; border-top:1px solid var(--rule); margin:0}
 .hero .lede{margin-top:1.4rem; max-width:34em}
 .byline{margin-top:2rem; font-family:var(--sans); font-size:.8125rem; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:.4rem 1.1rem}
 
-/* ‚îÄ‚îÄ sections ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── sections ─────────────────────────────────────────────────────────────── */
 section{padding:clamp(2.75rem,6vw,4.5rem) 0; border-top:1px solid var(--rule)}
 .sec-head{display:grid; grid-template-columns:auto 1fr; gap:0 1.25rem; align-items:baseline; margin-bottom:2rem}
 .sec-num{font-family:var(--sans); font-size:.75rem; font-weight:650; color:var(--accent); letter-spacing:.08em; padding-top:.5rem}
 .sec-head h2{font-size:clamp(1.65rem,1.2rem + 1.6vw,2.4rem); letter-spacing:-0.022em}
 .sec-head p{margin:.7rem 0 0; color:var(--ink-2); max-width:42em}
 
-/* ‚îÄ‚îÄ thesis ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── thesis ───────────────────────────────────────────────────────────────── */
 .props{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule)}
 @media(min-width:52rem){.props{grid-template-columns:1fr 1fr}}
 .props li{background:var(--paper); padding:1.6rem 1.5rem}
@@ -124,7 +124,7 @@ section{padding:clamp(2.75rem,6vw,4.5rem) 0; border-top:1px solid var(--rule)}
 .props h3 span{font-family:var(--sans); font-size:.6875rem; font-weight:650; color:var(--accent); letter-spacing:.06em; flex:none; padding-top:.15em}
 .props p{margin:0; font-size:.9375rem; color:var(--ink-2); line-height:1.55}
 
-/* ‚îÄ‚îÄ rules (interactive) ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── rules (interactive) ──────────────────────────────────────────────────── */
 .rules{border-top:1px solid var(--rule-2)}
 .rule-item{border-bottom:1px solid var(--rule-2)}
 .rule-item summary{
@@ -149,7 +149,7 @@ details[open] .rule-mark{transform:rotate(45deg)}
 .mech{font-size:.9375rem; color:var(--ink-2); border-left:2px solid var(--accent); padding-left:1rem}
 .mech b{color:var(--ink); font-weight:600}
 
-/* ‚îÄ‚îÄ privacy note ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── privacy note ─────────────────────────────────────────────────────────── */
 .privacy{
   font-family:var(--sans); font-size:.8125rem; line-height:1.5; color:var(--ink-2);
   background:var(--accent-wash); border:1px solid #E9D3CA; padding:.85rem 1rem;
@@ -158,7 +158,7 @@ details[open] .rule-mark{transform:rotate(45deg)}
 .privacy b{color:var(--ink)}
 .privacy .ic{flex:none; color:var(--accent-deep); font-size:1rem; line-height:1.25}
 
-/* ‚îÄ‚îÄ dropzone ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── dropzone ─────────────────────────────────────────────────────────────── */
 .drop{
   border:1.5px dashed var(--rule-2); background:var(--paper); border-radius:3px;
   padding:clamp(1.75rem,5vw,3rem) 1.5rem; text-align:center; transition:border-color .15s, background .15s;
@@ -183,8 +183,8 @@ details[open] .rule-mark{transform:rotate(45deg)}
 }
 .filelist .bad{border-color:#E6C4C4; color:var(--critical)}
 
-/* ‚îÄ‚îÄ paste fallback (.docx/.pdf are the common case and can't be parsed here
-      without an external library, which would break the CSP guarantee) ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── paste fallback (.docx/.pdf are the common case and can't be parsed here
+      without an external library, which would break the CSP guarantee) ────── */
 .paste{border:1px solid var(--rule); background:var(--paper); margin-top:.75rem}
 .paste>summary{cursor:pointer; list-style:none; padding:.8rem 1.1rem; font-family:var(--sans); font-size:.875rem; font-weight:600; display:flex; justify-content:space-between; gap:1rem; align-items:baseline}
 .paste>summary::-webkit-details-marker{display:none}
@@ -205,7 +205,7 @@ details[open] .rule-mark{transform:rotate(45deg)}
 .status.err{color:var(--critical)}
 .status b{color:var(--ink)}
 
-/* ‚îÄ‚îÄ findings ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── findings ─────────────────────────────────────────────────────────────── */
 .results{margin-top:2.5rem}
 .results[hidden]{display:none}
 .res-head{display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; align-items:baseline; justify-content:space-between; margin-bottom:1.25rem}
@@ -244,7 +244,7 @@ details[open] .rule-mark{transform:rotate(45deg)}
 .ai-tag b{color:var(--accent-deep)}
 .empty{font-family:var(--sans); font-size:.875rem; color:var(--ink-3); font-style:normal; padding:1.5rem 0}
 
-/* ‚îÄ‚îÄ figures / stat tiles ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── figures / stat tiles ─────────────────────────────────────────────────── */
 .hero-fig{border:1px solid var(--ink); background:var(--paper); padding:1.75rem; margin-bottom:1px}
 .hero-fig .lbl{font-family:var(--sans); font-size:.8125rem; color:var(--ink-2); margin-bottom:.3rem}
 .hero-fig .val{font-family:var(--sans); font-weight:700; font-size:clamp(2.75rem,2rem + 3.4vw,4.25rem); line-height:1; letter-spacing:-0.035em}
@@ -257,7 +257,7 @@ details[open] .rule-mark{transform:rotate(45deg)}
 .tile .val{font-family:var(--sans); font-weight:650; font-size:1.75rem; line-height:1.05; letter-spacing:-0.02em}
 .tile .note{font-family:var(--sans); font-size:.75rem; color:var(--ink-3); margin-top:.3rem}
 
-/* ‚îÄ‚îÄ assumptions ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── assumptions ──────────────────────────────────────────────────────────── */
 .assume{border:1px solid var(--rule); background:var(--paper); margin-top:1.5rem}
 .assume>summary{cursor:pointer; list-style:none; padding:.9rem 1.1rem; font-family:var(--sans); font-size:.875rem; font-weight:600; display:flex; justify-content:space-between; gap:1rem}
 .assume>summary::-webkit-details-marker{display:none}
@@ -280,7 +280,7 @@ details[open] .rule-mark{transform:rotate(45deg)}
 .caveat{font-family:var(--sans); font-size:.8125rem; line-height:1.55; color:var(--ink-2); margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--rule)}
 .caveat b{color:var(--ink)}
 
-/* ‚îÄ‚îÄ chart ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── chart ────────────────────────────────────────────────────────────────── */
 .chart-card{border:1px solid var(--rule); background:var(--paper); padding:1.35rem 1.35rem 1.1rem}
 .chart-top{display:flex; flex-wrap:wrap; gap:.9rem 1.5rem; align-items:baseline; justify-content:space-between; margin-bottom:1rem}
 .chart-top h3{font-family:var(--sans); font-size:1rem}
@@ -322,7 +322,7 @@ table.tv .swatch{width:9px;height:9px;border-radius:50%;display:inline-block;mar
 .verdict p+p{margin-top:.7rem; font-size:.9375rem; color:var(--ink-2)}
 .verdict b{font-weight:600}
 
-/* ‚îÄ‚îÄ honesty / closing ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── honesty / closing ────────────────────────────────────────────────────── */
 .honest{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule)}
 @media(min-width:52rem){.honest{grid-template-columns:1fr 1fr 1fr}}
 .honest>div{background:var(--paper); padding:1.4rem 1.35rem}
@@ -352,24 +352,24 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
 
 <header class="masthead">
   <div class="wrap">
-    <div class="wordmark">Plannett Gunnett<sup>‚Ñ¢</sup></div>
-    <div class="tag">Designing better business systems ‚Äî for people, the planet &amp; long-term prosperity</div>
+    <div class="wordmark">Plannett Gunnett<sup>™</sup></div>
+    <div class="tag">Designing better business systems — for people, the planet &amp; long-term prosperity</div>
   </div>
 </header>
 
 <div class="wrap">
 
   <div class="hero">
-    <p class="eyebrow">Field note 01 ¬∑ Operating efficiency</p>
+    <p class="eyebrow">Field note 01 · Operating efficiency</p>
     <h1>The drag you can't see is <em>cheaper to remove</em> than the demand you don't have.</h1>
-    <p class="lede">Most small businesses respond to a growth problem by buying more demand. In two and a half years of consulting I almost never found demand to be the binding constraint. The constraint was the delivery system ‚Äî and nobody could see it, because the waste was distributed one email, one approval, one re-do at a time.</p>
+    <p class="lede">Most small businesses respond to a growth problem by buying more demand. In two and a half years of consulting I almost never found demand to be the binding constraint. The constraint was the delivery system — and nobody could see it, because the waste was distributed one email, one approval, one re-do at a time.</p>
     <p class="byline">
-      <span>By Siera Gunnett</span><span>¬∑</span><span>Business systems consultant</span><span>¬∑</span>
-      <span>Includes a working audit ‚Äî drop in your own files below</span>
+      <span>By Siera Gunnett</span><span>·</span><span>Business systems consultant</span><span>·</span>
+      <span>Includes a working audit — drop in your own files below</span>
     </p>
   </div>
 
-  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 01 THESIS ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <!-- ════════════════════════════════ 01 THESIS ════════════════════════════ -->
   <section id="thesis">
     <div class="sec-head">
       <div class="sec-num">01</div>
@@ -381,24 +381,24 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
     <ul class="props">
       <li>
         <h3><span>I</span> Marketing multiplies a system. It does not repair one.</h3>
-        <p>If 30% of your delivery is rework, marketing spend buys you 30% more rework ‚Äî at full price, with a customer attached. Demand poured into a leaking system converts into churn and reputation damage, which are far more expensive than the ad spend that caused them.</p>
+        <p>If 30% of your delivery is rework, marketing spend buys you 30% more rework — at full price, with a customer attached. Demand poured into a leaking system converts into churn and reputation damage, which are far more expensive than the ad spend that caused them.</p>
       </li>
       <li>
         <h3><span>II</span> AI's real return isn't the work. It's the work <em>between</em> the work.</h3>
-        <p>The intuitive use is generating content. The high-return use is triage, extraction, summarisation and drafting ‚Äî the coordination layer nobody bills for and everybody pays for. That layer is where a small team quietly loses its week.</p>
+        <p>The intuitive use is generating content. The high-return use is triage, extraction, summarisation and drafting — the coordination layer nobody bills for and everybody pays for. That layer is where a small team quietly loses its week.</p>
       </li>
       <li>
         <h3><span>III</span> Only two line items appreciate: your product and your people.</h3>
-        <p>An ad impression has a half-life measured in hours. A fixed defect, a written process, a senior hire ‚Äî these keep paying out for years and reduce the cost of everything downstream. Expense versus asset is the whole decision.</p>
+        <p>An ad impression has a half-life measured in hours. A fixed defect, a written process, a senior hire — these keep paying out for years and reduce the cost of everything downstream. Expense versus asset is the whole decision.</p>
       </li>
       <li>
         <h3><span>IV</span> Coordination cost grows faster than headcount.</h3>
-        <p>Communication paths scale as <span class="sans">n(n‚àí1)/2</span>. Going from 6 to 12 people quadruples the paths. This is exactly the size at which most founders hire a marketer instead of fixing how decisions get made ‚Äî and then wonder why the team feels slower at twice the size.</p>
+        <p>Communication paths scale as <span class="sans">n(n−1)/2</span>. Going from 6 to 12 people quadruples the paths. This is exactly the size at which most founders hire a marketer instead of fixing how decisions get made — and then wonder why the team feels slower at twice the size.</p>
       </li>
     </ul>
   </section>
 
-  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 02 COUNTERINTUITIVE ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <!-- ═══════════════════════════ 02 COUNTERINTUITIVE ═══════════════════════ -->
   <section id="rules">
     <div class="sec-head">
       <div class="sec-num">02</div>
@@ -416,7 +416,7 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
             <div class="intuit"><span class="k">The intuitive move</span><p>We're at capacity, so add a person. Capacity goes up by one person's worth.</p></div>
             <div class="actual"><span class="k">What actually happens</span><p>Output falls for one to two quarters. The new hire produces at a fraction of full rate while consuming a meaningful share of your <em>best</em> person's time, and every existing communication path multiplies.</p></div>
           </div>
-          <p class="mech"><b>Mechanism:</b> onboarding is a transfer from your highest-value capacity to your lowest. If the process isn't written down, the transfer happens verbally ‚Äî so the cost lands on whoever holds the knowledge, who is invariably the person you could least afford to slow down. <b>Do first:</b> document the role before you fill it. The document is what makes the hire cheap, and writing it frequently reveals the role wasn't needed.</p>
+          <p class="mech"><b>Mechanism:</b> onboarding is a transfer from your highest-value capacity to your lowest. If the process isn't written down, the transfer happens verbally — so the cost lands on whoever holds the knowledge, who is invariably the person you could least afford to slow down. <b>Do first:</b> document the role before you fill it. The document is what makes the hire cheap, and writing it frequently reveals the role wasn't needed.</p>
         </div>
       </details>
 
@@ -425,9 +425,9 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
         <div class="rule-body">
           <div class="vs">
             <div class="intuit"><span class="k">The intuitive move</span><p>Find whoever is most overloaded and help them. That's clearly where things are stuck.</p></div>
-            <div class="actual"><span class="k">What actually happens</span><p>You optimise a step that wasn't constraining anything and the lead time barely moves. The real bottleneck is a <em>queue</em> ‚Äî work sitting still, waiting on a decision, invisible because nobody is busy with it.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>You optimise a step that wasn't constraining anything and the lead time barely moves. The real bottleneck is a <em>queue</em> — work sitting still, waiting on a decision, invisible because nobody is busy with it.</p></div>
           </div>
-          <p class="mech"><b>Mechanism:</b> busyness is a measure of utilisation; bottlenecks are a property of flow. By Little's Law, lead time = work-in-progress √∑ throughput, so the fastest way to shorten delivery is usually to <em>reduce how much is in flight at once</em> ‚Äî not to speed anyone up. <b>Do first:</b> measure where work waits, not where people work. Waiting is nearly always the majority of elapsed time.</p>
+          <p class="mech"><b>Mechanism:</b> busyness is a measure of utilisation; bottlenecks are a property of flow. By Little's Law, lead time = work-in-progress ÷ throughput, so the fastest way to shorten delivery is usually to <em>reduce how much is in flight at once</em> — not to speed anyone up. <b>Do first:</b> measure where work waits, not where people work. Waiting is nearly always the majority of elapsed time.</p>
         </div>
       </details>
 
@@ -436,9 +436,9 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
         <div class="rule-body">
           <div class="vs">
             <div class="intuit"><span class="k">The intuitive move</span><p>Push utilisation toward 100%. Idle time is waste, and we're paying for the hours either way.</p></div>
-            <div class="actual"><span class="k">What actually happens</span><p>Past roughly 85%, lead times don't rise gently ‚Äî they rise sharply and then explode. Every small disruption now propagates, because there is no slack anywhere to absorb it.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>Past roughly 85%, lead times don't rise gently — they rise sharply and then explode. Every small disruption now propagates, because there is no slack anywhere to absorb it.</p></div>
           </div>
-          <p class="mech"><b>Mechanism:</b> queueing theory. Waiting time scales with <span class="sans">œÅ/(1‚àíœÅ)</span> ‚Äî at 80% utilisation the ratio is 4; at 95% it is 19. The last 15% of utilisation you squeeze out costs you multiples in delivery time and blows up variability, which customers experience as unreliability. <b>Do first:</b> treat 80‚Äì85% as the target, and protect the slack deliberately. Slack is not idleness; it is the shock absorber that keeps promises credible.</p>
+          <p class="mech"><b>Mechanism:</b> queueing theory. Waiting time scales with <span class="sans">ρ/(1−ρ)</span> — at 80% utilisation the ratio is 4; at 95% it is 19. The last 15% of utilisation you squeeze out costs you multiples in delivery time and blows up variability, which customers experience as unreliability. <b>Do first:</b> treat 80–85% as the target, and protect the slack deliberately. Slack is not idleness; it is the shock absorber that keeps promises credible.</p>
         </div>
       </details>
 
@@ -446,10 +446,10 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
         <summary><span class="rule-n">04</span><span class="rule-t">Automating a bad process makes it permanent</span><span class="rule-mark" aria-hidden="true">+</span></summary>
         <div class="rule-body">
           <div class="vs">
-            <div class="intuit"><span class="k">The intuitive move</span><p>This task eats four hours a week. Automate it ‚Äî or point AI at it ‚Äî and reclaim four hours.</p></div>
+            <div class="intuit"><span class="k">The intuitive move</span><p>This task eats four hours a week. Automate it — or point AI at it — and reclaim four hours.</p></div>
             <div class="actual"><span class="k">What actually happens</span><p>You've now spent money making an unnecessary step fast, cheap, and permanent. Automation confers legitimacy: nobody questions a step that runs itself, so the step outlives every reason for its existence.</p></div>
           </div>
-          <p class="mech"><b>Mechanism:</b> the cheapest efficiency gain is <b>deletion</b>, and deletion has to come first ‚Äî the order is eliminate, simplify, standardise, then automate. Skipping to the last step is what produces an expensive tool nobody can explain. <b>Do first:</b> ask who consumes the output and what decision it changes. A startling share of recurring reports have no reader and change no decision.</p>
+          <p class="mech"><b>Mechanism:</b> the cheapest efficiency gain is <b>deletion</b>, and deletion has to come first — the order is eliminate, simplify, standardise, then automate. Skipping to the last step is what produces an expensive tool nobody can explain. <b>Do first:</b> ask who consumes the output and what decision it changes. A startling share of recurring reports have no reader and change no decision.</p>
         </div>
       </details>
 
@@ -458,9 +458,9 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
         <div class="rule-body">
           <div class="vs">
             <div class="intuit"><span class="k">The intuitive move</span><p>People aren't aligned, so book a recurring sync. Everyone hears the same thing at the same time.</p></div>
-            <div class="actual"><span class="k">What actually happens</span><p>A weekly hour with seven people is not one hour ‚Äî it is seven hours a week, roughly 320 a year, and it fragments two working days for everyone attending. Misalignment usually persists, because the actual failure was that no decision was ever written down.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>A weekly hour with seven people is not one hour — it is seven hours a week, roughly 320 a year, and it fragments two working days for everyone attending. Misalignment usually persists, because the actual failure was that no decision was ever written down.</p></div>
           </div>
-          <p class="mech"><b>Mechanism:</b> meetings are a synchronous fix for what is nearly always an artefact problem. If a decision isn't recorded with an owner and a date, it will be re-litigated ‚Äî and a recurring meeting is simply a scheduled place to re-litigate it. <b>Do first:</b> require every recurring meeting to output a written decision with a named owner. Meetings that can't produce one get deleted, and the calendar audits itself.</p>
+          <p class="mech"><b>Mechanism:</b> meetings are a synchronous fix for what is nearly always an artefact problem. If a decision isn't recorded with an owner and a date, it will be re-litigated — and a recurring meeting is simply a scheduled place to re-litigate it. <b>Do first:</b> require every recurring meeting to output a written decision with a named owner. Meetings that can't produce one get deleted, and the calendar audits itself.</p>
         </div>
       </details>
 
@@ -469,7 +469,7 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
         <div class="rule-body">
           <div class="vs">
             <div class="intuit"><span class="k">The intuitive move</span><p>Discount 10% to win more volume. We'll make it back on scale.</p></div>
-            <div class="actual"><span class="k">What actually happens</span><p>On a 40% gross margin, a 10% discount removes a quarter of your contribution per unit ‚Äî so you need roughly a third more volume just to stand still, delivered by the same team that was already near its ceiling. Volume you can't deliver well converts to churn.</p></div>
+            <div class="actual"><span class="k">What actually happens</span><p>On a 40% gross margin, a 10% discount removes a quarter of your contribution per unit — so you need roughly a third more volume just to stand still, delivered by the same team that was already near its ceiling. Volume you can't deliver well converts to churn.</p></div>
           </div>
           <p class="mech"><b>Mechanism:</b> price cuts hit contribution margin directly, while efficiency gains raise it. The two are the same lever pulled in opposite directions, but only one of them also increases your capacity to serve. <b>Do first:</b> compute the volume required to break even on the discount, and ask honestly whether your delivery system could absorb it. Usually the answer settles the question.</p>
         </div>
@@ -478,28 +478,28 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
     </div>
   </section>
 
-  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 03 AUDIT ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <!-- ═══════════════════════════════ 03 AUDIT ══════════════════════════════ -->
   <section id="audit">
     <div class="sec-head">
       <div class="sec-num">03</div>
       <div>
         <h2>The audit</h2>
-        <p>Arguments are cheap. Drop in real material ‚Äî inbox exports, meeting notes, an ops log, a project tracker ‚Äî and this page reads it for the signatures of drag, credits what you're already doing well, and prices the gap.</p>
+        <p>Arguments are cheap. Drop in real material — inbox exports, meeting notes, an ops log, a project tracker — and this page reads it for the signatures of drag, credits what you're already doing well, and prices the gap.</p>
       </div>
     </div>
 
     <p class="privacy">
-      <span class="ic" aria-hidden="true">‚óÜ</span>
-      <span><b>Nothing leaves this page ‚Äî and it can't.</b> Your files are read into your browser's memory and analysed by JavaScript running on this page. There is no server, no upload, no account, no cookie, and no analytics. Nothing is stored: close the tab and the contents are gone.
+      <span class="ic" aria-hidden="true">◆</span>
+      <span><b>Nothing leaves this page — and it can't.</b> Your files are read into your browser's memory and analysed by JavaScript running on this page. There is no server, no upload, no account, no cookie, and no analytics. Nothing is stored: close the tab and the contents are gone.
       <br><br>
-      This is enforced, not just promised. The page ships a Content Security Policy that blocks all outbound connections and all external scripts, so no code here ‚Äî mine or anyone's ‚Äî is able to transmit your data. You can verify it: save the file, disconnect from the internet, and it still works. Because no personal data ever reaches me or any third party, nothing you drop in here creates a processor relationship under GDPR ‚Äî you remain the sole controller of your own material throughout.
+      This is enforced, not just promised. The page ships a Content Security Policy that blocks all outbound connections and all external scripts, so no code here — mine or anyone's — is able to transmit your data. You can verify it: save the file, disconnect from the internet, and it still works. Because no personal data ever reaches me or any third party, nothing you drop in here creates a processor relationship under GDPR — you remain the sole controller of your own material throughout.
       <br><br>
-      <b>One caution.</b> The audit quotes real lines from your files on screen, including names. If you export this page to PDF or screenshot it, those quotes travel with it ‚Äî so treat the output as confidential to the same degree as the input.</span>
+      <b>One caution.</b> The audit quotes real lines from your files on screen, including names. If you export this page to PDF or screenshot it, those quotes travel with it — so treat the output as confidential to the same degree as the input.</span>
     </p>
 
     <div class="drop" id="drop">
       <h3>Drop files here</h3>
-      <p>Plain-text formats: <span class="sans">.txt .md .csv .tsv .log .eml .json .vtt .srt</span> ‚Äî email exports, meeting notes, Slack exports, task lists, transcripts. Multiple files welcome; larger samples give better estimates.</p>
+      <p>Plain-text formats: <span class="sans">.txt .md .csv .tsv .log .eml .json .vtt .srt</span> — email exports, meeting notes, Slack exports, task lists, transcripts. Multiple files welcome; larger samples give better estimates.</p>
       <div class="drop-actions">
         <button class="btn" id="pick" type="button">Choose files</button>
         <button class="btn ghost" id="sample" type="button">Run the worked example instead</button>
@@ -512,10 +512,10 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
 
     <details class="paste" id="pasteBox">
       <summary>Notes in Word, Google Docs, or a PDF? Paste the text instead
-        <span>works identically ‚Äî same analysis, same privacy</span></summary>
+        <span>works identically — same analysis, same privacy</span></summary>
       <div class="paste-body">
         <p style="font-family:var(--sans);font-size:.8125rem;color:var(--ink-2);margin:0 0 .7rem;line-height:1.5">
-          This tool deliberately cannot open <span class="sans">.docx</span> or <span class="sans">.pdf</span>: parsing them needs an external code library, and loading one would break the guarantee that nothing on this page can reach the network. Selecting all and pasting is the honest workaround. Meeting notes work best when each block keeps its <span class="sans">Attendees:</span> and <span class="sans">Duration:</span> lines ‚Äî that is what lets the audit price meetings from real numbers rather than estimates.
+          This tool deliberately cannot open <span class="sans">.docx</span> or <span class="sans">.pdf</span>: parsing them needs an external code library, and loading one would break the guarantee that nothing on this page can reach the network. Selecting all and pasting is the honest workaround. Meeting notes work best when each block keeps its <span class="sans">Attendees:</span> and <span class="sans">Duration:</span> lines — that is what lets the audit price meetings from real numbers rather than estimates.
         </p>
         <label for="pasteArea" class="vh">Paste meeting notes, emails, or an activity log</label>
         <textarea id="pasteArea" spellcheck="false"
@@ -538,31 +538,31 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
     </div>
   </section>
 
-  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 04 QUANTIFY ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <!-- ═════════════════════════════ 04 QUANTIFY ═════════════════════════════ -->
   <section id="quantify">
     <div class="sec-head">
       <div class="sec-num">04</div>
       <div>
         <h2>What it costs</h2>
-        <p>Every number below traces to an input you can change. The coefficients are estimates, and they are all visible ‚Äî open the assumptions panel and argue with them. That is the point.</p>
+        <p>Every number below traces to an input you can change. The coefficients are estimates, and they are all visible — open the assumptions panel and argue with them. That is the point.</p>
       </div>
     </div>
 
     <div class="hero-fig">
       <div class="lbl">Annual cost of the drag detected in these files</div>
-      <div class="val" id="heroVal">‚Äî</div>
+      <div class="val" id="heroVal">—</div>
       <div class="sub" id="heroSub">Load files or the worked example to compute.</div>
     </div>
 
     <div class="tiles">
-      <div class="tile"><div class="lbl">Team-hours lost per week</div><div class="val" id="tHrs">‚Äî</div><div class="note" id="tHrsN">across the whole team</div></div>
-      <div class="tile"><div class="lbl">Full-time equivalent</div><div class="val" id="tFte">‚Äî</div><div class="note">people-worth of pure coordination</div></div>
-      <div class="tile"><div class="lbl">Share of team capacity</div><div class="val" id="tCap">‚Äî</div><div class="note">recoverable without hiring</div></div>
-      <div class="tile"><div class="lbl">Addressable with AI today</div><div class="val" id="tAi">‚Äî</div><div class="note">of recoverable hours, weighted by task type</div></div>
+      <div class="tile"><div class="lbl">Team-hours lost per week</div><div class="val" id="tHrs">—</div><div class="note" id="tHrsN">across the whole team</div></div>
+      <div class="tile"><div class="lbl">Full-time equivalent</div><div class="val" id="tFte">—</div><div class="note">people-worth of pure coordination</div></div>
+      <div class="tile"><div class="lbl">Share of team capacity</div><div class="val" id="tCap">—</div><div class="note">recoverable without hiring</div></div>
+      <div class="tile"><div class="lbl">Addressable with AI today</div><div class="val" id="tAi">—</div><div class="note">of recoverable hours, weighted by task type</div></div>
     </div>
 
     <details class="assume" id="assumeBox">
-      <summary>Assumptions &amp; coefficients <span>every figure on this page derives from these ‚Äî open and edit</span></summary>
+      <summary>Assumptions &amp; coefficients <span>every figure on this page derives from these — open and edit</span></summary>
       <div class="assume-body">
 
         <div class="grp">
@@ -586,13 +586,13 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
             <div class="f"><label for="a_coverage">Share of the team's comms these files represent</label><input type="number" id="a_coverage" value="100" min="1" max="100" step="5"><span class="unit">%</span></div>
             <div class="f"><label for="a_meetdur">Assumed length when a meeting states none</label><input type="number" id="a_meetdur" value="60" min="5" step="5"><span class="unit">min</span></div>
           </div>
-          <p class="caveat" style="margin-top:1rem;padding-top:0;border:0"><b>Why coverage matters.</b> A sample of your inbox shows only a sample of the waste. Detected hours are divided by the period, then grossed up by this figure to estimate the whole. <b>It ships at 100% deliberately</b> ‚Äî that reports only what is literally present in the files you provided, which is the defensible floor and the number to quote to anyone who will push back. Lower it only if you know these files are a partial view, and say so when you cite the result. Every percentage point below 100 makes the headline figure larger and harder to defend.</p>
+          <p class="caveat" style="margin-top:1rem;padding-top:0;border:0"><b>Why coverage matters.</b> A sample of your inbox shows only a sample of the waste. Detected hours are divided by the period, then grossed up by this figure to estimate the whole. <b>It ships at 100% deliberately</b> — that reports only what is literally present in the files you provided, which is the defensible floor and the number to quote to anyone who will push back. Lower it only if you know these files are a partial view, and say so when you cite the result. Every percentage point below 100 makes the headline figure larger and harder to defend.</p>
         </div>
 
         <div class="grp">
           <h4>Hours per detected instance</h4>
           <div class="fields" id="coefFields"></div>
-          <p class="caveat" style="margin-top:1rem;padding-top:0;border:0">Meeting hours are not coefficient-based ‚Äî they are computed from stated attendee counts and durations. Tool sprawl is computed as a context-switching share of total team hours, not per instance.</p>
+          <p class="caveat" style="margin-top:1rem;padding-top:0;border:0">Meeting hours are not coefficient-based — they are computed from stated attendee counts and durations. Tool sprawl is computed as a context-switching share of total team hours, not per instance.</p>
         </div>
 
         <div class="grp">
@@ -605,25 +605,25 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
             <div class="f"><label for="a_tau">Months to implement the fixes</label><input type="number" id="a_tau" value="9" min="1" max="36" step="1"><span class="unit">mo</span></div>
             <div class="f"><label for="a_conv">Freed hours converted to delivered work</label><input type="number" id="a_conv" value="55" min="0" max="100" step="5"><span class="unit">%</span></div>
             <div class="f"><label for="a_target">Safe utilisation ceiling</label><input type="number" id="a_target" value="85" min="50" max="100" step="1"><span class="unit">%</span></div>
-            <div class="f"><label for="a_overload">Churn penalty per point over ceiling</label><input type="number" id="a_overload" value="6" min="0" step="0.5"><span class="unit">√ó</span></div>
+            <div class="f"><label for="a_overload">Churn penalty per point over ceiling</label><input type="number" id="a_overload" value="6" min="0" step="0.5"><span class="unit">×</span></div>
             <div class="f"><label for="a_switch">Start marketing in the sequenced plan at</label><input type="number" id="a_switch" value="7" min="1" max="24" step="1"><span class="unit">month</span></div>
           </div>
         </div>
 
         <p class="caveat">
-          <b>What this is and isn't.</b> Detection is keyword- and structure-based. It finds the linguistic <em>signatures</em> of drag ‚Äî a person asking for the fourth time, a version numbered v4, a meeting with seven attendees and no recorded decision. A negation guard drops lines that carry the keywords but mean the opposite ("nobody has to do that manually now"), and meeting blocks are bounded so a later decision cannot be credited to an earlier meeting that recorded nothing. It still cannot know whether a given instance was justified, and it will miss waste that nobody wrote down. Treat the output as a directional map of where to look and a defensible order of operations, not a diagnosis. Every serious engagement starts here and then goes and watches the actual work.
+          <b>What this is and isn't.</b> Detection is keyword- and structure-based. It finds the linguistic <em>signatures</em> of drag — a person asking for the fourth time, a version numbered v4, a meeting with seven attendees and no recorded decision. A negation guard drops lines that carry the keywords but mean the opposite ("nobody has to do that manually now"), and meeting blocks are bounded so a later decision cannot be credited to an earlier meeting that recorded nothing. It still cannot know whether a given instance was justified, and it will miss waste that nobody wrote down. Treat the output as a directional map of where to look and a defensible order of operations, not a diagnosis. Every serious engagement starts here and then goes and watches the actual work.
         </p>
       </div>
     </details>
   </section>
 
-  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 05 FORK ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <!-- ═══════════════════════════════ 05 FORK ═══════════════════════════════ -->
   <section id="fork">
     <div class="sec-head">
       <div class="sec-num">05</div>
       <div>
         <h2>The fork</h2>
-        <p>Same budget, three strategies, 24 months. The model gives all three the same customers, the same margin, and the same team ‚Äî the only difference is where the money goes and what that does to the ceiling on what you can deliver.</p>
+        <p>Same budget, three strategies, 24 months. The model gives all three the same customers, the same margin, and the same team — the only difference is where the money goes and what that does to the ceiling on what you can deliver.</p>
       </div>
     </div>
 
@@ -643,7 +643,7 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
       <h4 id="chartTitle" class="vh">Cumulative contribution margin over 24 months under three strategies</h4>
       <p id="chartDesc" class="vh">A line chart comparing marketing-first, efficiency-first, and sequenced strategies. Full values are available in the table view below.</p>
       <div class="chart-foot">
-        <span class="hint">Hover or focus the chart and use ‚Üê ‚Üí to read any month.</span>
+        <span class="hint">Hover or focus the chart and use ← → to read any month.</span>
         <button class="btn ghost sm" id="tvToggle" type="button" aria-expanded="false" aria-controls="tvWrap">Show table view</button>
       </div>
       <div id="tvWrap" hidden></div>
@@ -656,7 +656,7 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
     </div>
   </section>
 
-  <!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê 06 HONESTY ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+  <!-- ══════════════════════════════ 06 HONESTY ═════════════════════════════ -->
   <section id="honesty">
     <div class="sec-head">
       <div class="sec-num">06</div>
@@ -668,7 +668,7 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
     <div class="honest">
       <div>
         <h3>You have genuine slack</h3>
-        <p>If utilisation is comfortably under the ceiling and delivery quality holds, you have paid-for capacity sitting idle. Filling it is the highest-return thing available and efficiency work can wait ‚Äî the model reflects this, and will say so.</p>
+        <p>If utilisation is comfortably under the ceiling and delivery quality holds, you have paid-for capacity sitting idle. Filling it is the highest-return thing available and efficiency work can wait — the model reflects this, and will say so.</p>
       </div>
       <div>
         <h3>The product is proven and retention is strong</h3>
@@ -676,7 +676,7 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
       </div>
       <div>
         <h3>A window is closing</h3>
-        <p>Seasonality, a competitor's exit, a regulatory or platform shift. Timing value is real and process work is rarely urgent. Take the window ‚Äî but book the debt honestly, because you will pay it during the growth.</p>
+        <p>Seasonality, a competitor's exit, a regulatory or platform shift. Timing value is real and process work is rarely urgent. Take the window — but book the debt honestly, because you will pay it during the growth.</p>
       </div>
     </div>
   </section>
@@ -684,7 +684,7 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
   <div class="cta">
     <p class="eyebrow">Where this goes next</p>
     <h2>This page finds the shape of the problem. The work is in what you delete.</h2>
-    <p class="lede">A keyword pass over your inbox is a starting map, not an answer. The engagement is watching the actual work, ranking fixes by effort against recovered capacity, and deleting before automating ‚Äî in that order.</p>
+    <p class="lede">A keyword pass over your inbox is a starting map, not an answer. The engagement is watching the actual work, ranking fixes by effort against recovered capacity, and deleting before automating — in that order.</p>
     <div class="cta-actions">
       <a class="btn" href="https://www.instagram.com/plannettgunnett/">Plannett Gunnett on Instagram</a>
       <button class="btn ghost" id="printBtn" type="button">Save this page as PDF</button>
@@ -695,18 +695,18 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
     <div class="cols">
       <div style="flex:1 1 28rem">
         <p><b>Method.</b> Detection is regex and structure matching over plain text, run locally. Meeting cost is computed from stated attendee counts and durations where present. The 24-month model is a monthly cohort simulation with a capacity constraint: delivered revenue is capped by available delivery hours, and churn rises in proportion to how far utilisation exceeds the stated ceiling.</p>
-        <p><b>Concepts referenced.</b> Little's Law (lead time = WIP √∑ throughput); Kingman's approximation for queue growth near saturation; the eliminate‚Äìsimplify‚Äìstandardise‚Äìautomate ordering from lean process design; contribution-margin arithmetic on discounting.</p>
+        <p><b>Concepts referenced.</b> Little's Law (lead time = WIP ÷ throughput); Kingman's approximation for queue growth near saturation; the eliminate–simplify–standardise–automate ordering from lean process design; contribution-margin arithmetic on discounting.</p>
         <p><b>Accessibility.</b> Text and interface colours meet WCAG 2.1 AA contrast on this surface. Severity is carried by a label as well as a colour, the chart is keyboard-navigable with a full table-view equivalent, and the chart palette was validated for protanopia and deuteranopia separation rather than chosen by eye.</p>
-        <p><b>Privacy.</b> This page collects nothing. No server receives your files, no cookies are set, no analytics run, and no data is stored between visits ‚Äî enforced by a Content Security Policy that blocks all outbound connections and external scripts, not merely by this paragraph. Because no personal data reaches the author or any third party, no controller-processor relationship arises under the GDPR or the LOPDGDD; you remain the controller of your own material. Any names or client details visible in the results came from your files and exist only in your browser's memory until you close the tab.</p>
-        <p><b>No warranty, and not professional advice.</b> This tool is provided free and as-is, without warranty of any kind. Its output is a directional, keyword-based indication of where to look ‚Äî not an audit, a valuation, or accounting, legal, tax, or investment advice. The figures are estimates produced from assumptions you can and should change, and they will be wrong in ways specific to your business. Do not make hiring, spending, pricing, or investment decisions on this output alone; verify against your own records and take professional advice where it matters. No liability is accepted for decisions taken in reliance on it.</p>
+        <p><b>Privacy.</b> This page collects nothing. No server receives your files, no cookies are set, no analytics run, and no data is stored between visits — enforced by a Content Security Policy that blocks all outbound connections and external scripts, not merely by this paragraph. Because no personal data reaches the author or any third party, no controller-processor relationship arises under the GDPR or the LOPDGDD; you remain the controller of your own material. Any names or client details visible in the results came from your files and exist only in your browser's memory until you close the tab.</p>
+        <p><b>No warranty, and not professional advice.</b> This tool is provided free and as-is, without warranty of any kind. Its output is a directional, keyword-based indication of where to look — not an audit, a valuation, or accounting, legal, tax, or investment advice. The figures are estimates produced from assumptions you can and should change, and they will be wrong in ways specific to your business. Do not make hiring, spending, pricing, or investment decisions on this output alone; verify against your own records and take professional advice where it matters. No liability is accepted for decisions taken in reliance on it.</p>
         <p><b>The worked example is fictional.</b> "Meridian Studio" and every person, client, project, and figure in the sample data are invented for demonstration. Any resemblance to a real business or person is coincidental.</p>
-        <p><b>Trademarks.</b> Product and service names detected by this tool ‚Äî Slack, QuickBooks, Asana, Notion, Xero, HubSpot and others ‚Äî are trademarks of their respective owners, referenced only to identify systems named in your text. No affiliation, sponsorship, or endorsement is implied or claimed.</p>
+        <p><b>Trademarks.</b> Product and service names detected by this tool — Slack, QuickBooks, Asana, Notion, Xero, HubSpot and others — are trademarks of their respective owners, referenced only to identify systems named in your text. No affiliation, sponsorship, or endorsement is implied or claimed.</p>
       </div>
       <div style="flex:0 1 14rem">
-        <p><b>Plannett Gunnett‚Ñ¢</b><br>Designing better business systems.<br>For people, the planet &amp; long-term prosperity.</p>
-        <p>Field note 01 ¬∑ By Siera Gunnett</p>
+        <p><b>Plannett Gunnett™</b><br>Designing better business systems.<br>For people, the planet &amp; long-term prosperity.</p>
+        <p>Field note 01 · By Siera Gunnett</p>
         <p><b>Free to use and to share.</b> Use this on your own business or a client's at no cost. Save the file and run it offline if you prefer. Please keep the attribution intact.</p>
-        <p style="color:var(--ink-4)">¬© 2026 Siera Gunnett. Last updated August 2026.</p>
+        <p style="color:var(--ink-4)">© 2026 Siera Gunnett. Last updated August 2026.</p>
       </div>
     </div>
   </footer>
@@ -715,24 +715,24 @@ footer p{margin:0 0 .5rem; max-width:44em; line-height:1.55}
 
 <script>
 "use strict";
-/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+/* ─────────────────────────────────────────────────────────────────────────────
    No network calls anywhere in this file. Files are read with FileReader only.
-   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+   ───────────────────────────────────────────────────────────────────────────── */
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 const fmtMoney = (n) => {
   const a = Math.abs(n);
-  const s = n < 0 ? '‚àí' : '';
+  const s = n < 0 ? '−' : '';
   if (a >= 1e6) return s + '$' + (a/1e6).toFixed(a >= 1e7 ? 1 : 2) + 'M';
   if (a >= 1e4) return s + '$' + Math.round(a/1e3) + 'K';
   return s + '$' + Math.round(a).toLocaleString('en-US');
 };
-const fmtMoneyFull = (n) => (n < 0 ? '‚àí' : '') + '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+const fmtMoneyFull = (n) => (n < 0 ? '−' : '') + '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
 const fmtNum = (n, d=1) => n.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
 
-/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê DETECTORS ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* ═══════════════════════════════ DETECTORS ═══════════════════════════════ */
 /* Each category: linguistic signatures of a specific kind of operational drag.
    `hrs` = default hours of team time per detected instance (editable in the UI).
    `ai`  = share of those hours realistically addressable with current tooling. */
@@ -747,14 +747,14 @@ const CATS = [
   },
   {
     id:'rework', label:'Rework & version churn', sev:'critical', hrs:0.5, ai:0.35,
-    why:'Work done more than once. Pure waste ‚Äî it consumed capacity and produced nothing new. It is also the clearest evidence that requirements are entering the system unclear.',
+    why:'Work done more than once. Pure waste — it consumed capacity and produced nothing new. It is also the clearest evidence that requirements are entering the system unclear.',
     fix:'Rework is a symptom, not a category to optimise. Trace instances back to the intake step and fix the brief, the spec, or the approval gate that let ambiguity through.',
     aiNote:'Partly addressable: AI review passes catch spec gaps and inconsistencies before work starts. The larger share needs a process fix, not a tool.',
     re: /\b(as (?:i|we) (?:mentioned|said|noted|discussed)|per my (?:last|previous) (?:email|message|note)|circl(?:e|ing) back|as (?:previously |already )?discussed|to reiterate|reiterating|redo|re-?do(?:ing)?|revis(?:e|ed|ing) (?:again|once more|the revision)|v[3-9]\b|_?final_?final|(?:version|rev) ?(?:[3-9]|1\d)\b|had to (?:fix|redo|rebuild|start over)|wrong (?:file|version|number|invoice|address|spec|drawing)|didn'?t match|does ?n'?t match (?:the|what)|resend(?:ing)?|sent the wrong|scrap(?:ped)? (?:it|that|the)|start(?:ing)? (?:over|from scratch)|third (?:draft|revision|attempt)|mistake|typo in the)\b/i
   },
   {
     id:'meetings', label:'Meetings with no recorded decision', sev:'serious', hrs:0, ai:0.55,
-    why:'A recurring meeting that produces no written decision, owner, or next step. Cost is computed from stated attendee counts and durations, not estimated ‚Äî a weekly hour with seven people is roughly 320 team-hours a year.',
+    why:'A recurring meeting that produces no written decision, owner, or next step. Cost is computed from stated attendee counts and durations, not estimated — a weekly hour with seven people is roughly 320 team-hours a year.',
     fix:'Require a written decision with a named owner and a date as the output of every recurring meeting. The ones that cannot produce one delete themselves, and the calendar audits itself from then on.',
     aiNote:'Transcription plus decision extraction removes most of the note-taking and follow-up cost, and makes the no-decision meetings visible enough to kill.',
     re: null
@@ -768,7 +768,7 @@ const CATS = [
   },
   {
     id:'waiting', label:'Chasing & waiting', sev:'serious', hrs:0.3, ai:0.50,
-    why:'Someone spending time asking for something they already asked for. Each instance also marks a stalled item ‚Äî the visible tip of queue time, which is usually the majority of total elapsed time.',
+    why:'Someone spending time asking for something they already asked for. Each instance also marks a stalled item — the visible tip of queue time, which is usually the majority of total elapsed time.',
     fix:'Chasing means the handoff has no due date or no owner. Add both at the handoff, and the follow-up disappears rather than being automated.',
     aiNote:'Well addressed: automated status polling and follow-up drafting remove most of the human chase loop once ownership and dates exist.',
     re: /\b(still wait(?:ing)?|any update|just (?:bumping|checking|following up)|bump(?:ing)? this|gentle (?:nudge|reminder)|friendly reminder|check(?:ing)? in on (?:this|that|the)|did you (?:get|see|receive) (?:my|the)|(?:second|third|fourth) (?:request|reminder|time asking|attempt)|no response|not heard back|haven'?t heard (?:back|from)|following up again|chase(?:d|r)? (?:this|them|again)|ping(?:ed|ing)? (?:you|him|her|them) again|as promised last)\b/i
@@ -794,7 +794,7 @@ const TOOLS = ['Slack','Teams','Zoom','Google Meet','Notion','Asana','Trello','M
 const STRENGTHS = [
   { id:'sop', label:'Documented process', why:'Written process is what makes a hire cheap, an absence survivable, and an improvement permanent. It is the highest-leverage asset a small team can hold.',
     re:/\b(sop|standard operating procedure|playbook|runbook|checklist|template|documented|documentation|how-?to|wiki|process doc|written process|onboarding (?:doc|guide)|trainual|confluence)\b/i },
-  { id:'auto', label:'Automation already in place', why:'Evidence you have moved past doing things by hand. Worth auditing for the trap in rule 04 ‚Äî automation of a step that should have been deleted.',
+  { id:'auto', label:'Automation already in place', why:'Evidence you have moved past doing things by hand. Worth auditing for the trap in rule 04 — automation of a step that should have been deleted.',
     re:/\b(automat(?:ed|es|ion|ically)|zapier|make\.com|workflow|auto-?(?:send|sync|assign|reply|generate|file)|scheduled report|recurring report|integration|webhook|api call|triggers? when)\b/i },
   { id:'owner', label:'Clear ownership', why:'Named owners are what stop decisions being re-litigated. This single habit removes more meeting load than any tool.',
     re:/\b(owner\s*:|dri\s*:|assigned to|responsible\s*:|accountable\s*:|point person|single (?:owner|point of contact)|owns (?:this|the))\b/i },
@@ -808,7 +808,7 @@ const STRENGTHS = [
     re:/\b(ai|a\.i\.|llm|gpt|chatgpt|claude|copilot|gemini|auto-?summar(?:y|ise|ize)|transcri(?:be|bed|ption|pt)|prompt(?:ed|ing)?)\b/i }
 ];
 
-/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê FILE HANDLING ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* ═════════════════════════════ FILE HANDLING ════════════════════════════ */
 
 const OK_EXT = /\.(txt|md|markdown|csv|tsv|log|eml|mbox|json|vtt|srt|text)$/i;
 const RICH_EXT = /\.(docx?|pdf|pages|rtf|odt|xlsx?|numbers|pptx?|key)$/i;
@@ -829,12 +829,12 @@ function readFiles(fileList) {
   let files = Array.from(fileList);
   if (!files.length) return;
   if (files.length > MAX_FILES) {
-    setStatus(`Too many files at once ‚Äî reading the first ${MAX_FILES} of ${files.length}.`, true);
+    setStatus(`Too many files at once — reading the first ${MAX_FILES} of ${files.length}.`, true);
     files = files.slice(0, MAX_FILES);
   }
   const rows = [];
   let pending = 0, running = 0;
-  setStatus('Reading files‚Ä¶');
+  setStatus('Reading files…');
   // Reset the sample's declared partiality so a user who tried the worked
   // example first does not silently inherit its 50% gross-up on their own data.
   $('a_period').value = 4;
@@ -851,18 +851,18 @@ function readFiles(fileList) {
       // The most likely public failure mode: someone drops the .docx their
       // notes actually live in. Say what to do instead of just rejecting it.
       setStatus(rich.length
-        ? `<b>${esc(rich.map(r=>r.name).join(', '))}</b> can't be opened here ‚Äî reading Word, Pages or PDF needs an external library, and loading one would break this page's guarantee that nothing can reach the network. Open the file, select all, and use <b>paste the text instead</b> just below.`
-        : `Nothing readable in that ${files.length === 1 ? 'file' : 'selection'}. This audit reads plain text ‚Äî try .txt, .md, .csv or an .eml export, or paste the text below.`, true);
+        ? `<b>${esc(rich.map(r=>r.name).join(', '))}</b> can't be opened here — reading Word, Pages or PDF needs an external library, and loading one would break this page's guarantee that nothing can reach the network. Open the file, select all, and use <b>paste the text instead</b> just below.`
+        : `Nothing readable in that ${files.length === 1 ? 'file' : 'selection'}. This audit reads plain text — try .txt, .md, .csv or an .eml export, or paste the text below.`, true);
       $('results').hidden = true;
       return;
     }
     // Analysis is synchronous; yield a frame first so the status paints.
-    setStatus('Analysing‚Ä¶');
+    setStatus('Analysing…');
     requestAnimationFrame(() => setTimeout(() => {
       run();
       const lines = analysis ? analysis.totalLines : 0;
       let msg = `Read <b>${loadedFiles.length}</b> file${loadedFiles.length===1?'':'s'}, <b>${lines.toLocaleString('en-US')}</b> lines. Nothing was uploaded.`;
-      if (rich.length) msg += ` Skipped ${esc(rich.map(r=>r.name).join(', '))} ‚Äî paste that text below to include it.`;
+      if (rich.length) msg += ` Skipped ${esc(rich.map(r=>r.name).join(', '))} — paste that text below to include it.`;
       else if (bad.length) msg += ` Skipped ${bad.length} unreadable file${bad.length===1?'':'s'}.`;
       setStatus(msg);
     }, 0));
@@ -886,11 +886,11 @@ function readFiles(fileList) {
 
 function renderFileList(rows) {
   $('filelist').innerHTML = rows.map(r =>
-    `<li class="${r.ok ? '' : 'bad'}">${esc(r.name)}${r.ok ? '' : ' ‚Äî ' + esc(r.note)}</li>`
+    `<li class="${r.ok ? '' : 'bad'}">${esc(r.name)}${r.ok ? '' : ' — ' + esc(r.note)}</li>`
   ).join('');
 }
 
-/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê ANALYSIS ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* ═══════════════════════════════ ANALYSIS ═══════════════════════════════ */
 
 /* Decision markers require their marker form, not the bare word: "no conclusion"
    and "agreed it is a problem" both contain decision vocabulary while recording
@@ -899,7 +899,7 @@ const DECISION_RE = /(\bdecision\s*:|\bdecided (?:to|that|on|against)\b|\bwe wil
 
 /* Negation guard. "Nobody has to update the spreadsheet manually now" contains
    every keyword for manual repetition and means the opposite. A line carrying a
-   resolved/negated cue is not counted as waste ‚Äî it is usually a fix already
+   resolved/negated cue is not counted as waste — it is usually a fix already
    shipped, which the strengths pass credits separately. */
 const NEG_RE = /\b(no longer|nobody (?:has|needs) to|no one (?:has|needs) to|don'?t have to|doesn'?t have to|does not have to|used to|we (?:fixed|automated|removed|deleted|solved)|now automat|already automat|instead of (?:manually|doing)|so we stopped|stopped (?:doing|having to))\b/i;
 const RECURRING_RE = /\b(weekly|biweekly|bi-weekly|fortnightly|monthly|daily|recurring|standing|every (?:monday|tuesday|wednesday|thursday|friday|week|month)|standup|stand-up|sync|check-?in|touch ?base|catch ?up|1:1|one-on-one|all-hands|status (?:meeting|call))\b/i;
@@ -916,7 +916,7 @@ function analyze(files, assumeMeetMin) {
   const toolsFound = new Set();
   let totalLines = 0, totalWords = 0;
   let mkt = 0, bld = 0;
-  let truncated = false;   // MAX_LINES guard ‚Äî a huge drop must not hang the tab
+  let truncated = false;   // MAX_LINES guard — a huge drop must not hang the tab
 
   const MKT_RE = /\b(ad spend|ads?\b|adwords|campaign|impressions?|cpm|cpc|cac|boost(?:ed)? (?:post|the)|agency|retainer with|influencer|paid (?:social|search|media)|billboard|flyer|sponsored|lead gen|leads?\b|seo|newsletter blast|promo(?:tion)?)\b/gi;
   const BLD_RE = /\b(roadmap|hir(?:e|ing)|onboard(?:ing)?|training|upskill|product (?:work|fix|quality)|feature|bug|defect|documentation|sop|process|refactor|tooling|automation|quality control|qa\b|apprentice|mentor|equipment|capacity)\b/gi;
@@ -1019,7 +1019,7 @@ function analyze(files, assumeMeetMin) {
     .sort((a,b) => (b.depth + b.count) - (a.depth + a.count));
   hits.pingpong = threads.map(t => ({
     file:t.file, line:t.line,
-    text:`"${t.subject}" ‚Äî ${t.count} message${t.count===1?'':'s'} in thread, Re: depth ${t.depth}`,
+    text:`"${t.subject}" — ${t.count} message${t.count===1?'':'s'} in thread, Re: depth ${t.depth}`,
     match:t.subject
   }));
 
@@ -1029,7 +1029,7 @@ function analyze(files, assumeMeetMin) {
   const allMeetingHours = meetings.reduce((s,m) => s + m.people * (m.mins/60), 0);
   hits.meetings = noDecision.map(m => ({
     file:m.file, line:m.line,
-    text:`${m.title} ‚Äî ${m.people} attendee${m.people===1?'':'s'} √ó ${m.mins} min${m.assumed?' (duration not stated; assumed)':''} = ${fmtNum(m.people*(m.mins/60))} team-hours, no decision recorded${m.recurring?', recurring':''}`,
+    text:`${m.title} — ${m.people} attendee${m.people===1?'':'s'} × ${m.mins} min${m.assumed?' (duration not stated; assumed)':''} = ${fmtNum(m.people*(m.mins/60))} team-hours, no decision recorded${m.recurring?', recurring':''}`,
     match:m.title
   }));
 
@@ -1046,7 +1046,7 @@ function analyze(files, assumeMeetMin) {
   };
 }
 
-/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê THE MODEL ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* ═══════════════════════════════ THE MODEL ══════════════════════════════ */
 
 function readAssumptions() {
   const v = (id, d) => { const el = $(id); const n = parseFloat(el && el.value); return Number.isFinite(n) ? n : d; };
@@ -1076,7 +1076,7 @@ function computeWaste(an, a) {
     if (c.id === 'sprawl') {
       const extra = Math.max(0, an.toolsFound.length - 4);
       // A standing tax on total team hours, not a per-instance cost, so it is
-      // already a per-week figure ‚Äî scaled to the period for consistency.
+      // already a per-week figure — scaled to the period for consistency.
       // Capped: naming twelve systems in an inbox does not mean every person
       // swivels between twelve, and uncapped this term swamps everything real.
       const share = Math.min(extra * a.sprawlPct, a.sprawlCap);
@@ -1099,7 +1099,7 @@ function computeWaste(an, a) {
     return { cat:c, count, noun, perWeek, aiHours: perWeek * c.ai, evidence: an.hits[c.id] || [] };
   }).filter(r => r.count > 0 || r.perWeek > 0.01);
 
-  // Cap total recoverable at a defensible share of team capacity ‚Äî no model
+  // Cap total recoverable at a defensible share of team capacity — no model
   // should claim it can recover more than a third of everyone's week.
   const CAP = 0.33;
   let weekly = rows.reduce((s,r) => s + r.perWeek, 0);
@@ -1154,7 +1154,7 @@ function simulate(a, waste, mode) {
     const deliveredCust = Math.min(cust, capacity / hpc);
     const revenue = deliveredCust * a.arpu;
 
-    // Freed hours carry margin too ‚Äî but only the ones NOT already absorbed by
+    // Freed hours carry margin too — but only the ones NOT already absorbed by
     // serving existing demand. Recovered hours raise `capacity`, which raises
     // `deliveredCust` and so already show up in revenue; counting them again
     // here would double-count. Only genuine surplus is bankable.
@@ -1179,7 +1179,7 @@ function simulate(a, waste, mode) {
   return out;
 }
 
-/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê RENDERING ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* ═══════════════════════════════ RENDERING ══════════════════════════════ */
 
 const SERIES = [
   { key:'marketing',  label:'Marketing first',            color:'var(--s1)', hex:'#4a3aa7',
@@ -1205,7 +1205,7 @@ function recompute() {
 function run() { recompute(); $('results').hidden = false; }
 
 function highlight(text, match) {
-  const t = text.length > 220 ? text.slice(0, 217) + '‚Ä¶' : text;
+  const t = text.length > 220 ? text.slice(0, 217) + '…' : text;
   if (!match) return esc(t);
   const i = t.toLowerCase().indexOf(String(match).toLowerCase());
   if (i < 0) return esc(t);
@@ -1223,9 +1223,9 @@ function renderFindings(an, waste, a) {
     const share = Math.round(100 * an.mkt / (an.mkt + an.bld));
     chips.push(`<span class="chip">language split <b>${share}%</b> demand / <b>${100-share}%</b> build</span>`);
   }
-  if (an.truncated) chips.push(`<span class="chip" style="border-color:#E6C4C4;color:var(--critical)">capped at <b>${MAX_LINES.toLocaleString('en-US')}</b> lines ‚Äî later files not read</span>`);
+  if (an.truncated) chips.push(`<span class="chip" style="border-color:#E6C4C4;color:var(--critical)">capped at <b>${MAX_LINES.toLocaleString('en-US')}</b> lines — later files not read</span>`);
   $('chips').innerHTML = chips.join('');
-  $('resTitle').textContent = `Findings ‚Äî ${waste.rows.length} pattern${waste.rows.length===1?'':'s'} detected`;
+  $('resTitle').textContent = `Findings — ${waste.rows.length} pattern${waste.rows.length===1?'':'s'} detected`;
 
   const sorted = [...waste.rows].sort((x,y) => y.perWeek - x.perWeek);
   let html = sorted.map(r => {
@@ -1243,10 +1243,10 @@ function renderFindings(an, waste, a) {
         <div>
           <h4>Why it costs</h4><p>${esc(c.why)}</p>
           <h4>What to do</h4><p>${esc(c.fix)}</p>
-          <p><span class="ai-tag">AI leverage: <b>${Math.round(c.ai*100)}%</b> of these hours ‚Äî ${esc(c.aiNote)}</span></p>
+          <p><span class="ai-tag">AI leverage: <b>${Math.round(c.ai*100)}%</b> of these hours — ${esc(c.aiNote)}</span></p>
         </div>
         ${ev.length ? `<div><h4>Evidence from your files</h4><ul class="ev">${
-          ev.map(e => `<li><span class="loc">${esc(e.file)} ¬∑ line ${e.line}</span>${highlight(e.text, e.match)}</li>`).join('')
+          ev.map(e => `<li><span class="loc">${esc(e.file)} · line ${e.line}</span>${highlight(e.text, e.match)}</li>`).join('')
         }</ul>${more > 0 ? `<p style="font-family:var(--sans);font-size:.75rem;color:var(--ink-3);margin:.6rem 0 0">+ ${more} further instance${more===1?'':'s'} not shown</p>` : ''}</div>`
         : `<div><h4>Basis</h4><p style="font-family:var(--sans);font-size:.8125rem">${
             c.id === 'sprawl'
@@ -1262,21 +1262,21 @@ function renderFindings(an, waste, a) {
     <details class="finding">
       <summary>
         <span class="sev sev-serious"><span class="dot" aria-hidden="true"></span>serious</span>
-        <span class="f-title">Key-person concentration<span class="cnt">${esc(an.keyPerson.name)} ‚Äî ${Math.round(an.keyPerson.share*100)}% of operational mentions</span></span>
+        <span class="f-title">Key-person concentration<span class="cnt">${esc(an.keyPerson.name)} — ${Math.round(an.keyPerson.share*100)}% of operational mentions</span></span>
         <span class="f-hrs"><b>risk</b><br><span style="color:var(--ink-3)">not costed</span></span>
       </summary>
       <div class="f-body"><div>
         <h4>Why it costs</h4>
-        <p>One name dominates approvals, attendance, and "waiting on" statements in these files. That concentration is a hard ceiling on throughput ‚Äî nothing moves faster than this person's inbox ‚Äî and it is a single point of failure for a holiday, an illness, or a resignation. It is also the most common reason documented process never gets written: the knowledge holder is too busy being the bottleneck.</p>
+        <p>One name dominates approvals, attendance, and "waiting on" statements in these files. That concentration is a hard ceiling on throughput — nothing moves faster than this person's inbox — and it is a single point of failure for a holiday, an illness, or a resignation. It is also the most common reason documented process never gets written: the knowledge holder is too busy being the bottleneck.</p>
         <h4>What to do</h4>
         <p>Separate the two roles this person is playing. Decisions that only need a rule get a written threshold; decisions that need judgement get a named deputy. Neither requires them to work faster, which is the only fix that would not have worked.</p>
         <h4>Names by operational frequency</h4>
-        <ul class="ev">${an.keyPerson.names.map(n => `<li>${esc(n[0])} ‚Äî ${n[1]} weighted mention${n[1]===1?'':'s'}</li>`).join('')}</ul>
+        <ul class="ev">${an.keyPerson.names.map(n => `<li>${esc(n[0])} — ${n[1]} weighted mention${n[1]===1?'':'s'}</li>`).join('')}</ul>
       </div></div>
     </details>`;
   }
 
-  $('findings').innerHTML = html || `<p class="empty">No drag patterns matched. Either the files are unusually clean, or they do not contain operational communication ‚Äî try meeting notes or an inbox export.</p>`;
+  $('findings').innerHTML = html || `<p class="empty">No drag patterns matched. Either the files are unusually clean, or they do not contain operational communication — try meeting notes or an inbox export.</p>`;
 
   // strengths
   const sHits = STRENGTHS.map(s => ({ s, hits: an.strengthHits[s.id] })).filter(x => x.hits.length > 0)
@@ -1284,7 +1284,7 @@ function renderFindings(an, waste, a) {
   const totalMeetHrs = an.allMeetingHours;
   let sHtml = `<h3 style="font-size:1.15rem;margin:2.25rem 0 .9rem">What's already working</h3>`;
   if (!sHits.length) {
-    sHtml += `<p class="empty">No documented process, automation, ownership markers, or measurement language appeared in these files. That is itself the finding ‚Äî and it is the cheapest thing on this page to change.</p>`;
+    sHtml += `<p class="empty">No documented process, automation, ownership markers, or measurement language appeared in these files. That is itself the finding — and it is the cheapest thing on this page to change.</p>`;
   } else {
     sHtml += sHits.map(({s, hits}) => `
     <details class="finding">
@@ -1296,14 +1296,14 @@ function renderFindings(an, waste, a) {
       <div class="f-body"><div>
         <h4>Why this matters</h4><p>${esc(s.why)}</p>
         <h4>Evidence</h4>
-        <ul class="ev">${hits.slice(0,4).map(e => `<li><span class="loc">${esc(e.file)} ¬∑ line ${e.line}</span>${highlight(e.text, e.match)}</li>`).join('')}</ul>
+        <ul class="ev">${hits.slice(0,4).map(e => `<li><span class="loc">${esc(e.file)} · line ${e.line}</span>${highlight(e.text, e.match)}</li>`).join('')}</ul>
       </div></div>
     </details>`).join('');
   }
   if (an.meetings.length) {
     const withDec = an.meetings.length - an.noDecisionCount;
     sHtml += `<p style="font-family:var(--sans);font-size:.8125rem;color:var(--ink-2);margin-top:1rem">
-      Meeting ledger: <b>${fmtNum(totalMeetHrs)}</b> team-hours parsed across ${an.meetings.length} meeting${an.meetings.length===1?'':'s'} ‚Äî
+      Meeting ledger: <b>${fmtNum(totalMeetHrs)}</b> team-hours parsed across ${an.meetings.length} meeting${an.meetings.length===1?'':'s'} —
       <b>${withDec}</b> produced a recorded decision, <b>${an.noDecisionCount}</b> did not.
       ${withDec ? 'The ones that did are the template; hold the rest to the same bar.' : 'None recorded a decision, an owner, or a next step.'}
     </p>`;
@@ -1313,10 +1313,10 @@ function renderFindings(an, waste, a) {
 
 function renderFigures(waste, a) {
   $('heroVal').textContent = fmtMoneyFull(waste.annualCost);
-  $('heroSub').textContent = `${fmtNum(waste.weekly)} team-hours a week √ó ${a.wpy} working weeks √ó $${a.rate}/hr fully loaded.`
-    + (waste.capped ? ' Capped at 33% of team capacity ‚Äî the raw detection exceeded what any model should claim is recoverable.' : '')
+  $('heroSub').textContent = `${fmtNum(waste.weekly)} team-hours a week × ${a.wpy} working weeks × $${a.rate}/hr fully loaded.`
+    + (waste.capped ? ' Capped at 33% of team capacity — the raw detection exceeded what any model should claim is recoverable.' : '')
     + (a.coverage >= 1
-        ? ` Counts only what appears in the files provided, over a ${a.period}-week period ‚Äî no extrapolation.`
+        ? ` Counts only what appears in the files provided, over a ${a.period}-week period — no extrapolation.`
         : ` Extrapolated from a ${a.period}-week sample treated as ${Math.round(a.coverage*100)}% of the team's communication, so this figure is an estimate of the whole, not a count.`);
   $('tHrs').textContent = fmtNum(waste.weekly, 0);
   $('tHrsN').textContent = `of ${(a.teamHoursWeek).toLocaleString('en-US')} available team-hours`;
@@ -1325,7 +1325,7 @@ function renderFigures(waste, a) {
   $('tAi').textContent = Math.round(waste.aiShare*100) + '%';
 }
 
-/* ‚îÄ‚îÄ chart ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ── chart ───────────────────────────────────────────────────────────────── */
 let chartState = null;
 
 function renderChart(sims, a) {
@@ -1373,7 +1373,7 @@ function renderChart(sims, a) {
     return { s, vy: y(last.cum), val: last.cum };
   }).sort((p,q) => p.vy - q.vy);
   // Each end label is two lines (value + series name), so the gap has to clear
-  // both ‚Äî 15 collides the name line into the next value. Push down to
+  // both — 15 collides the name line into the next value. Push down to
   // separate, then shift the whole stack up if it would overflow the plot.
   const MINGAP = 30;
   ends.forEach((e,i) => { e.ly = e.vy; if (i > 0 && e.ly - ends[i-1].ly < MINGAP) e.ly = ends[i-1].ly + MINGAP; });
@@ -1394,7 +1394,7 @@ function renderChart(sims, a) {
 
   $('chart').innerHTML = svg;
   $('legend').innerHTML = SERIES.map(s =>
-    `<span class="lk"><i style="background:${s.hex}"></i>${esc(s.label)} ‚Äî <span style="color:var(--ink-3)">${esc(s.desc)}</span></span>`
+    `<span class="lk"><i style="background:${s.hex}"></i>${esc(s.label)} — <span style="color:var(--ink-3)">${esc(s.desc)}</span></span>`
   ).join('');
   $('chartSub').textContent = `All three spend ${fmtMoneyFull(a.budget)}/mo. Delivered revenue is capped by available delivery hours; churn rises when utilisation passes ${Math.round(a.target*100)}%.`;
 
@@ -1423,7 +1423,7 @@ function wireHover() {
       return `<span class="r"><span><i style="background:${s.hex}"></i>${esc(s.label.split(':')[0])}</span><span>${fmtMoneyFull(d.cum)}</span></span>`;
     }).join('');
     const u = st.sims.marketing[idx].util, u2 = st.sims.efficiency[idx].util;
-    tip.innerHTML = `<span class="m">Month ${m} ‚Äî cumulative</span>${rows}
+    tip.innerHTML = `<span class="m">Month ${m} — cumulative</span>${rows}
       <span class="r" style="margin-top:.35rem;padding-top:.35rem;border-top:1px solid rgba(250,248,243,.25);color:#D8D4C8">
       <span>utilisation</span><span>${Math.round(u*100)}% / ${Math.round(u2*100)}%</span></span>`;
     tip.classList.add('on');
@@ -1482,7 +1482,7 @@ function renderVerdict(sims, a, waste) {
   const peakUtil = Math.max(...mkt.map(d => d.util));
   const peakChurn = Math.max(...mkt.map(d => d.churn));
 
-  const rank = scores.map((r,i) => `${i+1}. ${r.s.label} <b>${fmtMoneyFull(r.v)}</b>`).join(' &nbsp;¬∑&nbsp; ');
+  const rank = scores.map((r,i) => `${i+1}. ${r.s.label} <b>${fmtMoneyFull(r.v)}</b>`).join(' &nbsp;·&nbsp; ');
   let v1 = `At month 24: ${rank}. <b>${esc(win.s.label)}</b> wins by <b>${fmtMoneyFull(gap)}</b> over the weakest path.`;
 
   // The decision actually on the table is sequenced vs. marketing-first, so
@@ -1495,21 +1495,21 @@ function renderVerdict(sims, a, waste) {
   }
 
   if (breach >= 0) {
-    v1 += ` The mechanism is capacity, not preference: the marketing-first path passes the ${Math.round(a.target*100)}% utilisation ceiling in <b>month ${breach+1}</b>, peaks at <b>${Math.round(peakUtil*100)}%</b>, and drags monthly churn from ${(a.churn*100).toFixed(1)}% to <b>${(peakChurn*100).toFixed(1)}%</b>. Past that line you are paying ${fmtMoneyFull(a.cac)} to acquire customers the team cannot serve well ‚Äî so you buy churn at full price.`;
+    v1 += ` The mechanism is capacity, not preference: the marketing-first path passes the ${Math.round(a.target*100)}% utilisation ceiling in <b>month ${breach+1}</b>, peaks at <b>${Math.round(peakUtil*100)}%</b>, and drags monthly churn from ${(a.churn*100).toFixed(1)}% to <b>${(peakChurn*100).toFixed(1)}%</b>. Past that line you are paying ${fmtMoneyFull(a.cac)} to acquire customers the team cannot serve well — so you buy churn at full price.`;
   } else {
-    v1 += ` And note what the model is telling you: utilisation never passes the ${Math.round(a.target*100)}% ceiling on any path, peaking at <b>${Math.round(peakUtil*100)}%</b>. <b>You have genuine slack.</b> That is the case where my whole thesis inverts ‚Äî idle paid-for capacity is the cheapest growth you will ever get, and efficiency work should wait.`;
+    v1 += ` And note what the model is telling you: utilisation never passes the ${Math.round(a.target*100)}% ceiling on any path, peaking at <b>${Math.round(peakUtil*100)}%</b>. <b>You have genuine slack.</b> That is the case where my whole thesis inverts — idle paid-for capacity is the cheapest growth you will ever get, and efficiency work should wait.`;
   }
 
   let v2 = '';
   if (win.s.key === 'sequenced') {
-    v2 = `This is the answer I gave most often, and it is not a compromise ‚Äî it is an ordering. Removing ${fmtNum(waste.weekly)} hours a week first raises the ceiling on what the team can deliver; spending on acquisition afterwards fills a system that can absorb it. Same money, same 24 months, ${fmtMoneyFull(last('sequenced') - last('marketing'))} of difference from sequence alone.`;
+    v2 = `This is the answer I gave most often, and it is not a compromise — it is an ordering. Removing ${fmtNum(waste.weekly)} hours a week first raises the ceiling on what the team can deliver; spending on acquisition afterwards fills a system that can absorb it. Same money, same 24 months, ${fmtMoneyFull(last('sequenced') - last('marketing'))} of difference from sequence alone.`;
     if (breach >= 0 && Math.abs(last('sequenced') - last('marketing')) < 0.12 * Math.abs(last('marketing'))) {
-      v2 += ` And read the margin honestly: on money alone the two paths are close. The difference the chart cannot draw is what marketing-first <em>spends to get there</em> ‚Äî ${Math.round(peakUtil*100)}% peak utilisation and ${(peakChurn*100).toFixed(1)}% churn means roughly the same cash extracted by running the team past its limit and losing customers you already paid to acquire. Two routes to a similar number, one of which costs you the team and the reputation. That asymmetry never shows up in a spreadsheet, which is exactly why the intuitive choice keeps winning arguments it should lose.`;
+      v2 += ` And read the margin honestly: on money alone the two paths are close. The difference the chart cannot draw is what marketing-first <em>spends to get there</em> — ${Math.round(peakUtil*100)}% peak utilisation and ${(peakChurn*100).toFixed(1)}% churn means roughly the same cash extracted by running the team past its limit and losing customers you already paid to acquire. Two routes to a similar number, one of which costs you the team and the reputation. That asymmetry never shows up in a spreadsheet, which is exactly why the intuitive choice keeps winning arguments it should lose.`;
     }
   } else if (win.s.key === 'efficiency') {
-    v2 = `Note that efficiency-first wins here <em>without acquiring anybody</em> ‚Äî it grows only by referral. That is a strong signal the constraint is entirely internal. Test raising the acquisition budget or bringing the sequenced switch forward from month ${a.switchMonth}; if marketing still loses, the delivery system is the whole problem.`;
+    v2 = `Note that efficiency-first wins here <em>without acquiring anybody</em> — it grows only by referral. That is a strong signal the constraint is entirely internal. Test raising the acquisition budget or bringing the sequenced switch forward from month ${a.switchMonth}; if marketing still loses, the delivery system is the whole problem.`;
   } else {
-    v2 = `Marketing-first winning is a real result, not a modelling failure ‚Äî and worth taking seriously before you spend anything on process work. Check whether it survives honest inputs: is ${fmtMoneyFull(a.cac)} really your blended CAC including the deals that didn't close, and does ${(a.churn*100).toFixed(1)}% monthly churn hold once delivery is under load?`;
+    v2 = `Marketing-first winning is a real result, not a modelling failure — and worth taking seriously before you spend anything on process work. Check whether it survives honest inputs: is ${fmtMoneyFull(a.cac)} really your blended CAC including the deals that didn't close, and does ${(a.churn*100).toFixed(1)}% monthly churn hold once delivery is under load?`;
   }
   if (waste.capped) {
     v2 += ` One caution: raw detection exceeded a third of total team capacity, so recoverable hours were capped there. Either the sample is unusually concentrated or coverage is set too low.`;
@@ -1518,7 +1518,7 @@ function renderVerdict(sims, a, waste) {
   $('verdict2').innerHTML = v2;
 }
 
-/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê WORKED EXAMPLE ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* ═════════════════════════════ WORKED EXAMPLE ═══════════════════════════ */
 /* Fictional. A nine-person residential design-build studio, four weeks of material. */
 
 const SAMPLE = [
@@ -1705,7 +1705,7 @@ Weekly, recurring.
 ` }
 ];
 
-/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê WIRING ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+/* ══════════════════════════════════ WIRING ═════════════════════════════ */
 
 // coefficient fields, generated from CATS so the model and the UI can't drift
 $('coefFields').innerHTML = CATS.filter(c => c.hrs > 0).map(c => `
@@ -1732,26 +1732,26 @@ $('file').addEventListener('change', e => { if (e.target.files.length) readFiles
 $('sample').addEventListener('click', () => {
   loadedFiles = SAMPLE.map(f => ({ name:f.name, text:f.text }));
   renderFileList(SAMPLE.map(f => ({ name:f.name, ok:true })));
-  // The sample is an EXCERPT ‚Äî three short files spanning three weeks of a
-  // nine-person firm ‚Äî so it must declare its own partiality rather than
+  // The sample is an EXCERPT — three short files spanning three weeks of a
+  // nine-person firm — so it must declare its own partiality rather than
   // inherit the 100% default, which would be a false claim about it.
   $('a_period').value = 3;
   $('a_coverage').value = 50;
   run();
-  setStatus('Running on <b>fictional sample data</b> ‚Äî an invented nine-person design-build studio. These three files are an excerpt spanning three weeks, so coverage is set to 50%: the figures estimate the whole firm rather than counting only these files. Drop your own files or paste your text to audit your business.');
+  setStatus('Running on <b>fictional sample data</b> — an invented nine-person design-build studio. These three files are an excerpt spanning three weeks, so coverage is set to 50%: the figures estimate the whole firm rather than counting only these files. Drop your own files or paste your text to audit your business.');
   $('results').scrollIntoView({ behavior:'smooth', block:'start' });
 });
 
-// Paste path ‚Äî the answer for .docx/.pdf/Google Docs, which cannot be parsed
+// Paste path — the answer for .docx/.pdf/Google Docs, which cannot be parsed
 // here without an external library that the CSP (correctly) forbids.
 $('pasteRun').addEventListener('click', () => {
   const text = $('pasteArea').value;
-  if (!text.trim()) { setStatus('Nothing pasted yet ‚Äî paste some text into the box first.', true); return; }
+  if (!text.trim()) { setStatus('Nothing pasted yet — paste some text into the box first.', true); return; }
   loadedFiles = [{ name:'pasted-text', text }];
   renderFileList([{ name:'pasted-text', ok:true }]);
   $('a_period').value = 4;
   $('a_coverage').value = 100;
-  setStatus('Analysing‚Ä¶');
+  setStatus('Analysing…');
   requestAnimationFrame(() => setTimeout(() => {
     run();
     setStatus(`Analysed <b>${(analysis ? analysis.totalLines : 0).toLocaleString('en-US')}</b> lines of pasted text. Nothing was uploaded or stored.`);
